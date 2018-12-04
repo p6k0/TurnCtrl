@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Baggage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Sprites\Baggage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Express" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Sprites\Express.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IN_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Sprites\2000\IN_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -132,5 +138,11 @@
   </data>
   <data name="OUT_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Sprites\2000\OUT_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SOS_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Sprites\SOS_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SOS_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Sprites\SOS_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

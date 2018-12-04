@@ -110,5 +110,17 @@
   <ItemGroup>
     <None Include="Sprites\Laser.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\Baggage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\Express.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\SOS_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\SOS_1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

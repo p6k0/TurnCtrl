@@ -8,6 +8,10 @@ namespace TurnCtrl
         {
             InitializeComponent();
             Region = Helper.getTurnstileRegion();
+            PictureBox pb = Helper.CreateBagageIcon();
+            this.Controls.Add(pb);
+            pb = Helper.CreateExpressIcon();
+            this.Controls.Add(pb);
         }
     }
 }

@@ -50,6 +50,12 @@
     <Compile Include="LineGroup.Designer.cs">
       <DependentUpon>LineGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="PassEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PassEditForm.Designer.cs">
+      <DependentUpon>PassEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,6 +86,9 @@
   <ItemGroup>
     <EmbeddedResource Include="LineGroup.resx">
       <DependentUpon>LineGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PassEditForm.resx">
+      <DependentUpon>PassEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -121,6 +130,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Sprites\SOS_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\COG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\ARROW_IN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\ARROW_OUT.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

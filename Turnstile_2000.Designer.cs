@@ -30,20 +30,24 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.passNum = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.passOut = new System.Windows.Forms.PictureBox();
+            this.SpecButton = new System.Windows.Forms.Button();
+            this.Laser_I_1 = new System.Windows.Forms.PictureBox();
+            this.Laser_I_0 = new System.Windows.Forms.PictureBox();
+            this.Laser_O_1 = new System.Windows.Forms.PictureBox();
+            this.Laser_O_0 = new System.Windows.Forms.PictureBox();
+            this.inHead = new System.Windows.Forms.PictureBox();
+            this.outHead = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Laser_I_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Laser_I_0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Laser_O_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Laser_O_0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inHead)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.outHead)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -62,120 +66,153 @@
             this.label2.Size = new System.Drawing.Size(19, 2);
             this.label2.TabIndex = 7;
             // 
-            // label3
+            // passNum
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(20, 130);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 20);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "666";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::TurnCtrl.Properties.Resources.SOS_0;
-            this.button1.Location = new System.Drawing.Point(60, 130);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(20, 20);
-            this.button1.TabIndex = 9;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::TurnCtrl.Properties.Resources.Laser;
-            this.pictureBox6.Location = new System.Drawing.Point(20, 98);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(40, 5);
-            this.pictureBox6.TabIndex = 5;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::TurnCtrl.Properties.Resources.Laser;
-            this.pictureBox5.Location = new System.Drawing.Point(20, 113);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(40, 5);
-            this.pictureBox5.TabIndex = 4;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::TurnCtrl.Properties.Resources.Laser;
-            this.pictureBox4.Location = new System.Drawing.Point(20, 25);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(40, 5);
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::TurnCtrl.Properties.Resources.Laser;
-            this.pictureBox3.Location = new System.Drawing.Point(20, 10);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(40, 5);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = global::TurnCtrl.Properties.Resources.IN_1;
-            this.pictureBox2.Location = new System.Drawing.Point(60, 65);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 65);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.passNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passNum.Location = new System.Drawing.Point(20, 130);
+            this.passNum.Name = "passNum";
+            this.passNum.Size = new System.Drawing.Size(40, 20);
+            this.passNum.TabIndex = 8;
+            this.passNum.Text = "666";
+            this.passNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::TurnCtrl.Properties.Resources.OUT_1;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Image = global::TurnCtrl.Properties.Resources.ARROW_IN;
+            this.pictureBox1.Location = new System.Drawing.Point(25, 121);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 65);
-            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.Size = new System.Drawing.Size(30, 9);
+            this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            // 
+            // passOut
+            // 
+            this.passOut.Image = global::TurnCtrl.Properties.Resources.ARROW_OUT;
+            this.passOut.Location = new System.Drawing.Point(25, 0);
+            this.passOut.Name = "passOut";
+            this.passOut.Size = new System.Drawing.Size(30, 9);
+            this.passOut.TabIndex = 10;
+            this.passOut.TabStop = false;
+            this.passOut.Visible = false;
+            // 
+            // SpecButton
+            // 
+            this.SpecButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SpecButton.FlatAppearance.BorderSize = 0;
+            this.SpecButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SpecButton.Image = global::TurnCtrl.Properties.Resources.SOS_0;
+            this.SpecButton.Location = new System.Drawing.Point(60, 130);
+            this.SpecButton.Name = "SpecButton";
+            this.SpecButton.Size = new System.Drawing.Size(20, 20);
+            this.SpecButton.TabIndex = 9;
+            this.SpecButton.UseVisualStyleBackColor = true;
+            this.SpecButton.MouseHover += new System.EventHandler(this.SpecButton_MouseHover);
+            // 
+            // Laser_I_1
+            // 
+            this.Laser_I_1.Image = global::TurnCtrl.Properties.Resources.Laser;
+            this.Laser_I_1.Location = new System.Drawing.Point(20, 97);
+            this.Laser_I_1.Name = "Laser_I_1";
+            this.Laser_I_1.Size = new System.Drawing.Size(40, 3);
+            this.Laser_I_1.TabIndex = 5;
+            this.Laser_I_1.TabStop = false;
+            this.Laser_I_1.Visible = false;
+            // 
+            // Laser_I_0
+            // 
+            this.Laser_I_0.Image = global::TurnCtrl.Properties.Resources.Laser;
+            this.Laser_I_0.Location = new System.Drawing.Point(20, 112);
+            this.Laser_I_0.Name = "Laser_I_0";
+            this.Laser_I_0.Size = new System.Drawing.Size(40, 3);
+            this.Laser_I_0.TabIndex = 4;
+            this.Laser_I_0.TabStop = false;
+            this.Laser_I_0.Visible = false;
+            // 
+            // Laser_O_1
+            // 
+            this.Laser_O_1.Image = global::TurnCtrl.Properties.Resources.Laser;
+            this.Laser_O_1.Location = new System.Drawing.Point(20, 30);
+            this.Laser_O_1.Name = "Laser_O_1";
+            this.Laser_O_1.Size = new System.Drawing.Size(40, 3);
+            this.Laser_O_1.TabIndex = 3;
+            this.Laser_O_1.TabStop = false;
+            this.Laser_O_1.Visible = false;
+            // 
+            // Laser_O_0
+            // 
+            this.Laser_O_0.Image = global::TurnCtrl.Properties.Resources.Laser;
+            this.Laser_O_0.Location = new System.Drawing.Point(20, 15);
+            this.Laser_O_0.Name = "Laser_O_0";
+            this.Laser_O_0.Size = new System.Drawing.Size(40, 3);
+            this.Laser_O_0.TabIndex = 2;
+            this.Laser_O_0.TabStop = false;
+            this.Laser_O_0.Visible = false;
+            // 
+            // inHead
+            // 
+            this.inHead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.inHead.Image = global::TurnCtrl.Properties.Resources.ut2000_head_in_normal;
+            this.inHead.Location = new System.Drawing.Point(60, 65);
+            this.inHead.Name = "inHead";
+            this.inHead.Size = new System.Drawing.Size(20, 65);
+            this.inHead.TabIndex = 1;
+            this.inHead.TabStop = false;
+            // 
+            // outHead
+            // 
+            this.outHead.Image = global::TurnCtrl.Properties.Resources.ut2000_head_out_normal;
+            this.outHead.Location = new System.Drawing.Point(0, 0);
+            this.outHead.Name = "outHead";
+            this.outHead.Size = new System.Drawing.Size(20, 65);
+            this.outHead.TabIndex = 0;
+            this.outHead.TabStop = false;
             // 
             // Turnstile_2000
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.passOut);
+            this.Controls.Add(this.SpecButton);
+            this.Controls.Add(this.passNum);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Laser_I_1);
+            this.Controls.Add(this.Laser_I_0);
+            this.Controls.Add(this.Laser_O_1);
+            this.Controls.Add(this.Laser_O_0);
+            this.Controls.Add(this.inHead);
+            this.Controls.Add(this.outHead);
             this.Name = "Turnstile_2000";
             this.Size = new System.Drawing.Size(80, 150);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.Load += new System.EventHandler(this.Turnstile_2000_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Laser_I_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Laser_I_0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Laser_O_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Laser_O_0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inHead)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.outHead)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox outHead;
+        private System.Windows.Forms.PictureBox inHead;
+        private System.Windows.Forms.PictureBox Laser_O_0;
+        private System.Windows.Forms.PictureBox Laser_O_1;
+        private System.Windows.Forms.PictureBox Laser_I_0;
+        private System.Windows.Forms.PictureBox Laser_I_1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label passNum;
+        private System.Windows.Forms.Button SpecButton;
+        private System.Windows.Forms.PictureBox passOut;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

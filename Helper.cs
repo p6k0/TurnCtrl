@@ -64,6 +64,7 @@ namespace TurnCtrl
         {
             PictureBox icon = CreateTurnIcon();
             icon.Image = Properties.Resources.Baggage;
+            icon.Tag = "Baggage";
             icon.Top = 64;
             return icon;
         }
@@ -71,6 +72,7 @@ namespace TurnCtrl
         {
             PictureBox icon = CreateTurnIcon();
             icon.Image = Properties.Resources.Express;
+            icon.Tag = "Express";
             icon.Top = 44;
             return icon;
         }

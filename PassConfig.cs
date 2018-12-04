@@ -7,26 +7,26 @@ using System.Threading.Tasks;
 
 namespace TurnCtrl
 {
-    class PassProperies
+    public class PassProperies
     {
         /// <summary>
         /// Номер прохода на станции
         /// </summary>
-        public int PassNum = 0;
+        public int PassNum = 1;
         /// <summary>
         /// COM - порт общения
         /// </summary>
-        public SerialPort Port = null;
+        public string Port = string.Empty;
         /// <summary>
         /// Адрес на линии
         /// </summary>
-        public int Address = 0;
+        public int Address = 1;
         /// <summary>
         /// Конфигурация стойки
         /// </summary>
         public RackConfig
-            LeftRack,
-            RightRack;
+            LeftRack = new RackConfig(),
+            RightRack = new RackConfig();
         /// <summary>
         /// Возможность прохода на платформу
         /// </summary>
@@ -42,13 +42,18 @@ namespace TurnCtrl
         /// <summary>
         /// Багажный проход
         /// </summary>
-        public bool Baggage = false;
+        public bool Baggage = true;
     }
-    class RackConfig
+   public class RackConfig
     {
-       public ulong
-            InventoryNum = 0,
-            SerialNum = 0;
+        /// <summary>
+        /// Инвентарный номер стойки
+        /// </summary>
+        public string InventoryNum = "0";
+        /// <summary>
+        /// Серийный номер стойки
+        /// </summary>
+        public ulong SerialNum = 0;
        
 
         //Возможно придется добавить владельца

@@ -42,6 +42,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.TextLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TextLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.TextLbl.Location = new System.Drawing.Point(20, 0);
             this.TextLbl.Name = "TextLbl";
             this.TextLbl.Size = new System.Drawing.Size(80, 20);

@@ -142,6 +142,18 @@
   <data name="SOS_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Sprites\SOS_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ut2000_9_head_in_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Sprites\2000_9\IN_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ut2000_9_head_in_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Sprites\2000_9\IN_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ut2000_9_head_out_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Sprites\2000_9\OUT_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ut2000_9_head_out_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Sprites\2000_9\OUT_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ut2000_head_in_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Sprites\2000\IN_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -153,5 +165,17 @@
   </data>
   <data name="ut2000_head_out_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Sprites\2000\OUT_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ut2012_head_in_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Sprites\2012\IN_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ut2012_head_in_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Sprites\2012\IN_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ut2012_head_out_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Sprites\2012\OUT_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ut2012_head_out_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Sprites\2012\OUT_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

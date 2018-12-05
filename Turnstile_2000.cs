@@ -61,6 +61,7 @@ namespace TurnCtrl
 
         private void SpecButton_MouseHover(object sender, System.EventArgs e)
         {
+            if(ttip!=null)
             ttip.Show("Включить режим \"Антипаника\"", passNum);
         }
 

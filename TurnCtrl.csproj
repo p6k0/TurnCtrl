@@ -140,5 +140,29 @@
   <ItemGroup>
     <None Include="Sprites\ARROW_OUT.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\2000_9\IN_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\2000_9\OUT_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\2000_9\OUT_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\2000_9\IN_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\2012\OUT_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\2012\OUT_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\2012\IN_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sprites\2012\IN_1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

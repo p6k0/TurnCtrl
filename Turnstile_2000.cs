@@ -15,8 +15,7 @@ namespace TurnCtrl
             Properties = new PassProperies();
             InitializeComponent();
             Region = Helper.getTurnstileRegion();
-            SpecButton.Image = TurnCtrl.Properties.Resources.COG;
-            SpecButton.Click += EditProperties_Click;
+            passNum.Click += EditProperties_Click;
         }
 
         public Turnstile_2000(PassProperies properties, ToolTip ttip, bool Editable = false)
@@ -27,13 +26,11 @@ namespace TurnCtrl
             Properties = properties;
             if (Editable)
             {
-                SpecButton.Image = TurnCtrl.Properties.Resources.COG;
-                SpecButton.Click += EditProperties_Click;
+                passNum.Click += EditProperties_Click;
             }
             else
             {
-                SpecButton.Image = TurnCtrl.Properties.Resources.SOS_0;
-                SpecButton.Click += OpenMode_Click;
+                passNum.Click += OpenMode_Click;
             }
             Upd();
         }
@@ -64,7 +61,7 @@ namespace TurnCtrl
 
         private void SpecButton_MouseHover(object sender, System.EventArgs e)
         {
-            ttip.Show("Включить режим \"Антипаника\"",SpecButton);
+            ttip.Show("Включить режим \"Антипаника\"", passNum);
         }
 
         private void Turnstile_2000_Load(object sender, System.EventArgs e)
@@ -76,10 +73,8 @@ namespace TurnCtrl
         {
             passNum.Text = Properties.PassNum.ToString();
 
-            if (Properties.InEnable)
-                inHead.Image = Properties.InEnable ? TurnCtrl.Properties.Resources.ut2000_head_in_normal : TurnCtrl.Properties.Resources.ut2000_head_in_empty;
-            else
-                outHead.Image = Properties.InEnable ? TurnCtrl.Properties.Resources.ut2000_head_out_normal : TurnCtrl.Properties.Resources.ut2000_head_out_empty;
+            inHead.Image = Properties.InEnable ? TurnCtrl.Properties.Resources.ut2000_head_in_normal : TurnCtrl.Properties.Resources.ut2000_head_in_empty;
+            outHead.Image = Properties.OutEnable ? TurnCtrl.Properties.Resources.ut2000_head_out_normal : TurnCtrl.Properties.Resources.ut2000_head_out_empty;
 
 
 

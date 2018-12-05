@@ -30,10 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.passNum = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.passOut = new System.Windows.Forms.PictureBox();
-            this.SpecButton = new System.Windows.Forms.Button();
+            this.passNum = new System.Windows.Forms.Button();
             this.Laser_I_1 = new System.Windows.Forms.PictureBox();
             this.Laser_I_0 = new System.Windows.Forms.PictureBox();
             this.Laser_O_1 = new System.Windows.Forms.PictureBox();
@@ -54,6 +53,7 @@
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.label1.Location = new System.Drawing.Point(20, 64);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 2);
             this.label1.TabIndex = 6;
@@ -61,25 +61,17 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.label2.Location = new System.Drawing.Point(41, 64);
+            this.label2.Location = new System.Drawing.Point(42, 64);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(19, 2);
             this.label2.TabIndex = 7;
-            // 
-            // passNum
-            // 
-            this.passNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.passNum.Location = new System.Drawing.Point(20, 130);
-            this.passNum.Name = "passNum";
-            this.passNum.Size = new System.Drawing.Size(40, 20);
-            this.passNum.TabIndex = 8;
-            this.passNum.Text = "666";
-            this.passNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TurnCtrl.Properties.Resources.ARROW_IN;
             this.pictureBox1.Location = new System.Drawing.Point(25, 121);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 9);
             this.pictureBox1.TabIndex = 11;
@@ -90,29 +82,33 @@
             // 
             this.passOut.Image = global::TurnCtrl.Properties.Resources.ARROW_OUT;
             this.passOut.Location = new System.Drawing.Point(25, 0);
+            this.passOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.passOut.Name = "passOut";
             this.passOut.Size = new System.Drawing.Size(30, 9);
             this.passOut.TabIndex = 10;
             this.passOut.TabStop = false;
             this.passOut.Visible = false;
             // 
-            // SpecButton
+            // passNum
             // 
-            this.SpecButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SpecButton.FlatAppearance.BorderSize = 0;
-            this.SpecButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SpecButton.Image = global::TurnCtrl.Properties.Resources.SOS_0;
-            this.SpecButton.Location = new System.Drawing.Point(60, 130);
-            this.SpecButton.Name = "SpecButton";
-            this.SpecButton.Size = new System.Drawing.Size(20, 20);
-            this.SpecButton.TabIndex = 9;
-            this.SpecButton.UseVisualStyleBackColor = true;
-            this.SpecButton.MouseHover += new System.EventHandler(this.SpecButton_MouseHover);
+            this.passNum.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.passNum.FlatAppearance.BorderSize = 0;
+            this.passNum.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.passNum.Location = new System.Drawing.Point(20, 130);
+            this.passNum.Margin = new System.Windows.Forms.Padding(0);
+            this.passNum.Name = "passNum";
+            this.passNum.Size = new System.Drawing.Size(40, 20);
+            this.passNum.TabIndex = 9;
+            this.passNum.TabStop = false;
+            this.passNum.Text = "#";
+            this.passNum.UseVisualStyleBackColor = false;
+            this.passNum.MouseHover += new System.EventHandler(this.SpecButton_MouseHover);
             // 
             // Laser_I_1
             // 
             this.Laser_I_1.Image = global::TurnCtrl.Properties.Resources.Laser;
             this.Laser_I_1.Location = new System.Drawing.Point(20, 97);
+            this.Laser_I_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Laser_I_1.Name = "Laser_I_1";
             this.Laser_I_1.Size = new System.Drawing.Size(40, 3);
             this.Laser_I_1.TabIndex = 5;
@@ -123,6 +119,7 @@
             // 
             this.Laser_I_0.Image = global::TurnCtrl.Properties.Resources.Laser;
             this.Laser_I_0.Location = new System.Drawing.Point(20, 112);
+            this.Laser_I_0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Laser_I_0.Name = "Laser_I_0";
             this.Laser_I_0.Size = new System.Drawing.Size(40, 3);
             this.Laser_I_0.TabIndex = 4;
@@ -133,6 +130,7 @@
             // 
             this.Laser_O_1.Image = global::TurnCtrl.Properties.Resources.Laser;
             this.Laser_O_1.Location = new System.Drawing.Point(20, 30);
+            this.Laser_O_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Laser_O_1.Name = "Laser_O_1";
             this.Laser_O_1.Size = new System.Drawing.Size(40, 3);
             this.Laser_O_1.TabIndex = 3;
@@ -143,6 +141,7 @@
             // 
             this.Laser_O_0.Image = global::TurnCtrl.Properties.Resources.Laser;
             this.Laser_O_0.Location = new System.Drawing.Point(20, 15);
+            this.Laser_O_0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Laser_O_0.Name = "Laser_O_0";
             this.Laser_O_0.Size = new System.Drawing.Size(40, 3);
             this.Laser_O_0.TabIndex = 2;
@@ -151,9 +150,9 @@
             // 
             // inHead
             // 
-            this.inHead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.inHead.Image = global::TurnCtrl.Properties.Resources.ut2000_head_in_normal;
             this.inHead.Location = new System.Drawing.Point(60, 65);
+            this.inHead.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.inHead.Name = "inHead";
             this.inHead.Size = new System.Drawing.Size(20, 65);
             this.inHead.TabIndex = 1;
@@ -163,6 +162,7 @@
             // 
             this.outHead.Image = global::TurnCtrl.Properties.Resources.ut2000_head_out_normal;
             this.outHead.Location = new System.Drawing.Point(0, 0);
+            this.outHead.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.outHead.Name = "outHead";
             this.outHead.Size = new System.Drawing.Size(20, 65);
             this.outHead.TabIndex = 0;
@@ -170,12 +170,10 @@
             // 
             // Turnstile_2000
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.passOut);
-            this.Controls.Add(this.SpecButton);
             this.Controls.Add(this.passNum);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -185,6 +183,7 @@
             this.Controls.Add(this.Laser_O_0);
             this.Controls.Add(this.inHead);
             this.Controls.Add(this.outHead);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Turnstile_2000";
             this.Size = new System.Drawing.Size(80, 150);
             this.Load += new System.EventHandler(this.Turnstile_2000_Load);
@@ -210,8 +209,7 @@
         private System.Windows.Forms.PictureBox Laser_I_1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label passNum;
-        private System.Windows.Forms.Button SpecButton;
+        private System.Windows.Forms.Button passNum;
         private System.Windows.Forms.PictureBox passOut;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

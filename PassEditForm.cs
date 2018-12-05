@@ -33,7 +33,7 @@ namespace TurnCtrl
         {
             prop.PassNum = (int)passNum.Value;
             prop.Address = (int)address.Value;
-            prop.Port = comboBox1.SelectedItem.ToString();
+            prop.Port = comboBox1.SelectedIndex == -1? string.Empty: comboBox1.SelectedItem.ToString();
 
             prop.InEnable = inEnable.Checked;
             prop.OutEnable = outEnable.Checked;

@@ -7,8 +7,46 @@ using System.Threading.Tasks;
 
 namespace TurnCtrl
 {
+    public class StationProperties
+    {
+        public int ExpressCode;
+        public string Name;
+    }
+
+    public class LineGroupProperties
+    {
+        /// <summary>
+        /// Порядковый номер в группе
+        /// </summary>
+        public int Id = 1;
+        /// <summary>
+        /// Имя группы
+        /// </summary>
+        public string Name = "Группа линеек";
+    }
+
+    public class TurnLineProperties
+    {
+        /// <summary>
+        /// Порядковый номер в группе
+        /// </summary>
+        public int Id = 1;
+        /// <summary>
+        /// Название линейки
+        /// </summary>
+        public string Name = "Имя линейки";
+        /// <summary>
+        /// Модель турникетов в линейке
+        /// </summary>
+        public Turnstile.Model TurnstileModel = Turnstile.Model.ut2000;
+    }
+
     public class PassProperies
     {
+        /// <summary>
+        /// Порядковый номер в линейке
+        /// </summary>
+        public int Id = 1;
         /// <summary>
         /// Номер прохода на станции
         /// </summary>
@@ -24,9 +62,9 @@ namespace TurnCtrl
         /// <summary>
         /// Конфигурация стойки
         /// </summary>
-        public RackConfig
-            LeftRack = new RackConfig(),
-            RightRack = new RackConfig();
+        public RackProperties
+            LeftRack = new RackProperties(),
+            RightRack = new RackProperties();
         /// <summary>
         /// Возможность прохода на платформу
         /// </summary>
@@ -38,13 +76,13 @@ namespace TurnCtrl
         /// <summary>
         /// Проход к электропоездам ЭКСПРЕСС
         /// </summary>
-        public bool Express = true;
+        public bool Express = false;
         /// <summary>
         /// Багажный проход
         /// </summary>
-        public bool Baggage = true;
+        public bool Baggage = false;
     }
-   public class RackConfig
+   public class RackProperties
     {
         /// <summary>
         /// Инвентарный номер стойки

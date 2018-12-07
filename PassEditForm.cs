@@ -10,6 +10,7 @@ namespace TurnCtrl
         {
             this.prop = prop;
             InitializeComponent();
+            this.Text = "Настройка прохода (порядковый номер: "+prop.Id+")";
             foreach (string port in SerialPort.GetPortNames())
                 comboBox1.Items.Add(port);
             passNum.Value = prop.PassNum;
@@ -44,8 +45,11 @@ namespace TurnCtrl
             prop.LeftRack.InventoryNum = leftInvNum.Text;
             prop.LeftRack.SerialNum = (ulong)leftSNum.Value;
 
-            prop.LeftRack.InventoryNum = leftInvNum.Text;
-            prop.LeftRack.SerialNum = (ulong)leftSNum.Value;
+            prop.RightRack.InventoryNum = rightInvNum.Text;
+            prop.RightRack.SerialNum = (ulong)rightSNum.Value;
+
+
+
             DialogResult = DialogResult.OK;
             this.Close();
         }

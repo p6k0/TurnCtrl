@@ -1,6 +1,6 @@
 ﻿namespace TurnCtrl
 {
-    partial class Turnstile_2000
+    partial class Turnstile
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -71,29 +71,27 @@
             // 
             this.pictureBox1.Image = global::TurnCtrl.Properties.Resources.ARROW_IN;
             this.pictureBox1.Location = new System.Drawing.Point(25, 121);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 9);
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
             // 
             // passOut
             // 
             this.passOut.Image = global::TurnCtrl.Properties.Resources.ARROW_OUT;
             this.passOut.Location = new System.Drawing.Point(25, 0);
-            this.passOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passOut.Margin = new System.Windows.Forms.Padding(4);
             this.passOut.Name = "passOut";
             this.passOut.Size = new System.Drawing.Size(30, 9);
             this.passOut.TabIndex = 10;
             this.passOut.TabStop = false;
-            this.passOut.Visible = false;
             // 
             // passNum
             // 
             this.passNum.Cursor = System.Windows.Forms.Cursors.Hand;
             this.passNum.FlatAppearance.BorderSize = 0;
-            this.passNum.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.passNum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.passNum.Location = new System.Drawing.Point(20, 130);
             this.passNum.Margin = new System.Windows.Forms.Padding(0);
             this.passNum.Name = "passNum";
@@ -102,73 +100,71 @@
             this.passNum.TabStop = false;
             this.passNum.Text = "#";
             this.passNum.UseVisualStyleBackColor = false;
-            this.passNum.MouseHover += new System.EventHandler(this.SpecButton_MouseHover);
+            this.passNum.MouseClick += new System.Windows.Forms.MouseEventHandler(this.passNum_MouseClick);
             // 
             // Laser_I_1
             // 
             this.Laser_I_1.Image = global::TurnCtrl.Properties.Resources.Laser;
             this.Laser_I_1.Location = new System.Drawing.Point(20, 97);
-            this.Laser_I_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Laser_I_1.Margin = new System.Windows.Forms.Padding(4);
             this.Laser_I_1.Name = "Laser_I_1";
             this.Laser_I_1.Size = new System.Drawing.Size(40, 3);
             this.Laser_I_1.TabIndex = 5;
             this.Laser_I_1.TabStop = false;
-            this.Laser_I_1.Visible = false;
             // 
             // Laser_I_0
             // 
             this.Laser_I_0.Image = global::TurnCtrl.Properties.Resources.Laser;
             this.Laser_I_0.Location = new System.Drawing.Point(20, 112);
-            this.Laser_I_0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Laser_I_0.Margin = new System.Windows.Forms.Padding(4);
             this.Laser_I_0.Name = "Laser_I_0";
             this.Laser_I_0.Size = new System.Drawing.Size(40, 3);
             this.Laser_I_0.TabIndex = 4;
             this.Laser_I_0.TabStop = false;
-            this.Laser_I_0.Visible = false;
             // 
             // Laser_O_1
             // 
             this.Laser_O_1.Image = global::TurnCtrl.Properties.Resources.Laser;
             this.Laser_O_1.Location = new System.Drawing.Point(20, 30);
-            this.Laser_O_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Laser_O_1.Margin = new System.Windows.Forms.Padding(4);
             this.Laser_O_1.Name = "Laser_O_1";
             this.Laser_O_1.Size = new System.Drawing.Size(40, 3);
             this.Laser_O_1.TabIndex = 3;
             this.Laser_O_1.TabStop = false;
-            this.Laser_O_1.Visible = false;
             // 
             // Laser_O_0
             // 
             this.Laser_O_0.Image = global::TurnCtrl.Properties.Resources.Laser;
             this.Laser_O_0.Location = new System.Drawing.Point(20, 15);
-            this.Laser_O_0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Laser_O_0.Margin = new System.Windows.Forms.Padding(4);
             this.Laser_O_0.Name = "Laser_O_0";
             this.Laser_O_0.Size = new System.Drawing.Size(40, 3);
             this.Laser_O_0.TabIndex = 2;
             this.Laser_O_0.TabStop = false;
-            this.Laser_O_0.Visible = false;
             // 
             // inHead
             // 
             this.inHead.Image = global::TurnCtrl.Properties.Resources.ut2000_head_in_normal;
             this.inHead.Location = new System.Drawing.Point(60, 65);
-            this.inHead.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inHead.Margin = new System.Windows.Forms.Padding(4);
             this.inHead.Name = "inHead";
             this.inHead.Size = new System.Drawing.Size(20, 65);
             this.inHead.TabIndex = 1;
             this.inHead.TabStop = false;
+            this.inHead.MouseHover += new System.EventHandler(this.PassHead_MouseHover);
             // 
             // outHead
             // 
             this.outHead.Image = global::TurnCtrl.Properties.Resources.ut2000_head_out_normal;
             this.outHead.Location = new System.Drawing.Point(0, 0);
-            this.outHead.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.outHead.Margin = new System.Windows.Forms.Padding(4);
             this.outHead.Name = "outHead";
             this.outHead.Size = new System.Drawing.Size(20, 65);
             this.outHead.TabIndex = 0;
             this.outHead.TabStop = false;
+            this.outHead.MouseHover += new System.EventHandler(this.PassHead_MouseHover);
             // 
-            // Turnstile_2000
+            // Turnstile
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -183,10 +179,9 @@
             this.Controls.Add(this.Laser_O_0);
             this.Controls.Add(this.inHead);
             this.Controls.Add(this.outHead);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Turnstile_2000";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "Turnstile";
             this.Size = new System.Drawing.Size(80, 150);
-            this.Load += new System.EventHandler(this.Turnstile_2000_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Laser_I_1)).EndInit();

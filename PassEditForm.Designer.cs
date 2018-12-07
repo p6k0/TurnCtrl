@@ -32,16 +32,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.leftInvNum = new System.Windows.Forms.TextBox();
             this.leftSNum = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rightInvNum = new System.Windows.Forms.TextBox();
             this.rightSNum = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.inEnable = new System.Windows.Forms.CheckBox();
             this.outEnable = new System.Windows.Forms.CheckBox();
+            this.inEnable = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.express = new System.Windows.Forms.CheckBox();
             this.baggage = new System.Windows.Forms.CheckBox();
@@ -50,9 +52,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.leftInvNum = new System.Windows.Forms.TextBox();
-            this.rightInvNum = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leftSNum)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -96,30 +95,20 @@
             this.groupBox1.Controls.Add(this.leftSNum);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(12, 149);
+            this.groupBox1.Location = new System.Drawing.Point(12, 82);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(253, 65);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Левая стойка";
             // 
-            // label5
+            // leftInvNum
             // 
-            this.label5.Location = new System.Drawing.Point(6, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Серийный №:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(6, 40);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 20);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Инвентарный №:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.leftInvNum.Location = new System.Drawing.Point(113, 37);
+            this.leftInvNum.MaxLength = 20;
+            this.leftInvNum.Name = "leftInvNum";
+            this.leftInvNum.Size = new System.Drawing.Size(134, 20);
+            this.leftInvNum.TabIndex = 7;
             // 
             // leftSNum
             // 
@@ -133,18 +122,44 @@
             this.leftSNum.Size = new System.Drawing.Size(134, 20);
             this.leftSNum.TabIndex = 6;
             // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(6, 40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 20);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Инвентарный №:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(6, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 20);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Серийный №:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.rightInvNum);
             this.groupBox2.Controls.Add(this.rightSNum);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Location = new System.Drawing.Point(12, 218);
+            this.groupBox2.Location = new System.Drawing.Point(271, 82);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(253, 65);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Правая стойка";
+            // 
+            // rightInvNum
+            // 
+            this.rightInvNum.Location = new System.Drawing.Point(113, 37);
+            this.rightInvNum.MaxLength = 20;
+            this.rightInvNum.Name = "rightInvNum";
+            this.rightInvNum.Size = new System.Drawing.Size(134, 20);
+            this.rightInvNum.TabIndex = 8;
             // 
             // rightSNum
             // 
@@ -181,22 +196,12 @@
             this.groupBox3.Controls.Add(this.outEnable);
             this.groupBox3.Controls.Add(this.inEnable);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(12, 82);
+            this.groupBox3.Location = new System.Drawing.Point(271, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(135, 65);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Направления прохода";
-            // 
-            // inEnable
-            // 
-            this.inEnable.AutoSize = true;
-            this.inEnable.Location = new System.Drawing.Point(6, 18);
-            this.inEnable.Name = "inEnable";
-            this.inEnable.Size = new System.Drawing.Size(99, 17);
-            this.inEnable.TabIndex = 0;
-            this.inEnable.Text = "На платформу";
-            this.inEnable.UseVisualStyleBackColor = true;
             // 
             // outEnable
             // 
@@ -208,12 +213,22 @@
             this.outEnable.Text = "С платформы";
             this.outEnable.UseVisualStyleBackColor = true;
             // 
+            // inEnable
+            // 
+            this.inEnable.AutoSize = true;
+            this.inEnable.Location = new System.Drawing.Point(6, 18);
+            this.inEnable.Name = "inEnable";
+            this.inEnable.Size = new System.Drawing.Size(99, 17);
+            this.inEnable.TabIndex = 0;
+            this.inEnable.Text = "На платформу";
+            this.inEnable.UseVisualStyleBackColor = true;
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.express);
             this.groupBox4.Controls.Add(this.baggage);
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox4.Location = new System.Drawing.Point(153, 82);
+            this.groupBox4.Location = new System.Drawing.Point(412, 6);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(112, 65);
             this.groupBox4.TabIndex = 10;
@@ -290,7 +305,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(110, 289);
+            this.button1.Location = new System.Drawing.Point(368, 153);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 14;
@@ -300,7 +315,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(191, 289);
+            this.button2.Location = new System.Drawing.Point(449, 153);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 15;
@@ -308,38 +323,11 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // leftInvNum
-            // 
-            this.leftInvNum.Location = new System.Drawing.Point(113, 37);
-            this.leftInvNum.MaxLength = 20;
-            this.leftInvNum.Name = "leftInvNum";
-            this.leftInvNum.Size = new System.Drawing.Size(134, 20);
-            this.leftInvNum.TabIndex = 7;
-            // 
-            // rightInvNum
-            // 
-            this.rightInvNum.Location = new System.Drawing.Point(113, 37);
-            this.rightInvNum.MaxLength = 20;
-            this.rightInvNum.Name = "rightInvNum";
-            this.rightInvNum.Size = new System.Drawing.Size(134, 20);
-            this.rightInvNum.TabIndex = 8;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(12, 289);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Удалить";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // PassEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 322);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(533, 185);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
@@ -397,6 +385,5 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox leftInvNum;
         private System.Windows.Forms.TextBox rightInvNum;
-        private System.Windows.Forms.Button button3;
     }
 }

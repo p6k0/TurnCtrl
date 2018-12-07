@@ -6,38 +6,13 @@ namespace TurnCtrl
 {
     public static class Helper
     {
-        #region турникет
-        /// <summary>
-        /// Модели турникетов
-        /// </summary>
-        public enum TurnstileModels : byte
-        {
-            ut2000,
-            ut2000_5,
-            ut2000_9,
-            ut2012,
-            ut2012_14,
-            ut2015
-        }
-
         /// <summary>
         /// Регионы турникетов в зависимости от их положения в линейке
         /// </summary>
         public static Region PassRegion = null;
 
 
-        /// <summary>
-        /// Возвращает область видимости турникета в зависимости от его положения в линейке
-        /// </summary>
-        /// <param name="position">Позиция в линейке</param>
-        /// <returns>область видимости элемента управления</returns>
-        public static Region getTurnstileRegion()
-        {
-            if (PassRegion != null)
-                return PassRegion;
-            else
-                return createPassRegion();
-        }
+        
         /// <summary>
         /// Создает область видимости турникета в зависимости от его положения в линейке
         /// </summary>
@@ -88,6 +63,6 @@ namespace TurnCtrl
             };
             return icon;
         }
-        #endregion
     }
+
 }

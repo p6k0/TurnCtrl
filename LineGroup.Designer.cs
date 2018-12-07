@@ -28,33 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupText = new System.Windows.Forms.Label();
+            this.groupName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // groupText
+            // groupName
             // 
-            this.groupText.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupText.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupText.Location = new System.Drawing.Point(0, 0);
-            this.groupText.Name = "groupText";
-            this.groupText.Size = new System.Drawing.Size(441, 25);
-            this.groupText.TabIndex = 0;
-            this.groupText.Text = "PpYy";
-            this.groupText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.groupName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupName.Location = new System.Drawing.Point(0, 0);
+            this.groupName.Name = "groupName";
+            this.groupName.Size = new System.Drawing.Size(110, 25);
+            this.groupName.TabIndex = 0;
+            this.groupName.Text = "Pp";
+            this.groupName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LineGroup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupText);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.Controls.Add(this.groupName);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "LineGroup";
-            this.Size = new System.Drawing.Size(441, 280);
+            this.Size = new System.Drawing.Size(110, 215);
+            this.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.LineGroup_ControlRemoved);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label groupText;
+        private System.Windows.Forms.Label groupName;
     }
 }

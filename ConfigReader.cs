@@ -82,7 +82,7 @@ namespace TurnCtrl
             {
                 Number = PassNum,
                 Port = el.GetAttribute("Port"),
-                Addres = Convert.ToByte(el.GetAttribute("Addr"));
+                Addres = Convert.ToByte(el.GetAttribute("Addr"))
 
         }
     }

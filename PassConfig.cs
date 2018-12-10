@@ -64,6 +64,7 @@ namespace TurnCtrl
 
     public class PassProperty
     {
+        Turnstile.Model Model;
         /// <summary>
         /// Номер прохода
         /// </summary>

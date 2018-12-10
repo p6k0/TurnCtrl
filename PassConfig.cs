@@ -41,30 +41,33 @@ namespace TurnCtrl
         public Turnstile.Model TurnstileModel = Turnstile.Model.ut2000;
     }
 
-    public class PassProperies
+    public class TurnstileProperty
     {
-        /// <summary>
-        /// Порядковый номер в линейке
-        /// </summary>
-        public int Id = 1;
-        /// <summary>
-        /// Номер прохода на станции
-        /// </summary>
-        public int PassNum = 1;
-        /// <summary>
-        /// COM - порт общения
-        /// </summary>
-        public string Port = string.Empty;
-        /// <summary>
-        /// Адрес на линии
-        /// </summary>
-        public int Address = 1;
-        /// <summary>
-        /// Конфигурация стойки
-        /// </summary>
+        public byte OrderId = 1;
+        public PassProperty Pass;
+        public WireProperty Wire;
         public RackProperties
             LeftRack = new RackProperties(),
             RightRack = new RackProperties();
+    }
+    public class WireProperty
+    {
+        /// <summary>
+        /// Адрес на линии rs485
+        /// </summary>
+        public byte Address = 1;
+        /// <summary>
+        /// COM-порт
+        /// </summary>
+        public string Port = string.Empty;
+    }
+
+    public class PassProperty
+    {
+        /// <summary>
+        /// Номер прохода
+        /// </summary>
+        public byte Number = 1;
         /// <summary>
         /// Возможность прохода на платформу
         /// </summary>
@@ -82,7 +85,8 @@ namespace TurnCtrl
         /// </summary>
         public bool Baggage = false;
     }
-   public class RackProperties
+
+    public class RackProperties
     {
         /// <summary>
         /// Инвентарный номер стойки
@@ -92,7 +96,7 @@ namespace TurnCtrl
         /// Серийный номер стойки
         /// </summary>
         public ulong SerialNum = 0;
-       
+
 
         //Возможно придется добавить владельца
     }

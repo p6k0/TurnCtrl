@@ -18,14 +18,14 @@ namespace TurnCtrl
 
 
         ToolTip ttip;
-        public TurnstileProperty Properties;
+        public VisualPassProperty Properties;
         private PictureBox
              Baggage, Express;
 
         public Turnstile()
         {
             _model = Model.ut2000;
-            Properties = new TurnstileProperty();
+            Properties = new VisualPassProperty();
             InitializeComponent();
             passNum.ContextMenu = new ContextMenu(
             new MenuItem[]
@@ -38,7 +38,7 @@ namespace TurnCtrl
             Region = getTurnstileRegion();
         }
 
-        public Turnstile(TurnstileProperty properties, ToolTip ttip, bool Editable = false)
+        public Turnstile(VisualPassProperty properties, ToolTip ttip, bool Editable = false)
         {
             _model = model;
             InitializeComponent();
@@ -115,17 +115,17 @@ namespace TurnCtrl
             {
                 case Model.ut2000:
                 case Model.ut2000_5:
-                    inHead.Image = Properties.Pass.InEnable ? TurnCtrl.Properties.Resources.ut2000_head_in_normal : TurnCtrl.Properties.Resources.ut2000_head_in_empty;
-                    outHead.Image = Properties.Pass.OutEnable ? TurnCtrl.Properties.Resources.ut2000_head_out_normal : TurnCtrl.Properties.Resources.ut2000_head_out_empty;
+                    inHead.Image = Properties.Wire.InEnable ? TurnCtrl.Properties.Resources.ut2000_head_in_normal : TurnCtrl.Properties.Resources.ut2000_head_in_empty;
+                    outHead.Image = Properties.Wire.OutEnable ? TurnCtrl.Properties.Resources.ut2000_head_out_normal : TurnCtrl.Properties.Resources.ut2000_head_out_empty;
                     break;
                 case Model.ut2012:
                 case Model.ut2012_14:
-                    inHead.Image = Properties.Pass.InEnable ? TurnCtrl.Properties.Resources.ut2012_head_in_normal : TurnCtrl.Properties.Resources.ut2012_head_in_empty;
-                    outHead.Image = Properties.Pass.OutEnable ? TurnCtrl.Properties.Resources.ut2012_head_out_normal : TurnCtrl.Properties.Resources.ut2012_head_out_empty;
+                    inHead.Image = Properties.Wire.InEnable ? TurnCtrl.Properties.Resources.ut2012_head_in_normal : TurnCtrl.Properties.Resources.ut2012_head_in_empty;
+                    outHead.Image = Properties.Wire.OutEnable ? TurnCtrl.Properties.Resources.ut2012_head_out_normal : TurnCtrl.Properties.Resources.ut2012_head_out_empty;
                     break;
                 case Model.ut2000_9:
-                    inHead.Image = Properties.Pass.InEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_in_normal : TurnCtrl.Properties.Resources.ut2000_9_head_in_empty;
-                    outHead.Image = Properties.Pass.OutEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_out_normal : TurnCtrl.Properties.Resources.ut2000_9_head_out_empty;
+                    inHead.Image = Properties.Wire.InEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_in_normal : TurnCtrl.Properties.Resources.ut2000_9_head_in_empty;
+                    outHead.Image = Properties.Wire.OutEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_out_normal : TurnCtrl.Properties.Resources.ut2000_9_head_out_empty;
                     break;
             }
 

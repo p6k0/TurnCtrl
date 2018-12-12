@@ -41,42 +41,14 @@ namespace TurnCtrl
         public Turnstile.Model TurnstileModel = Turnstile.Model.ut2000;
     }
 
-    public class TurnstileProperty
+    public class VisualPassProperty
     {
         public byte OrderId = 1;
-        public PassProperty Pass;
-        public WireProperty Wire;
-        public RackProperties
-            LeftRack = new RackProperties(),
-            RightRack = new RackProperties();
-    }
-    public class WireProperty
-    {
-        /// <summary>
-        /// Адрес на линии rs485
-        /// </summary>
-        public byte Address = 1;
-        /// <summary>
-        /// COM-порт
-        /// </summary>
-        public string Port = string.Empty;
-    }
-
-    public class PassProperty
-    {
-        Turnstile.Model Model;
+        public Turnstile.Model Model = Turnstile.Model.ut2000;
         /// <summary>
         /// Номер прохода
         /// </summary>
         public byte Number = 1;
-        /// <summary>
-        /// Возможность прохода на платформу
-        /// </summary>
-        public bool InEnable = true;
-        /// <summary>
-        /// Возможность прохода с платформы
-        /// </summary>
-        public bool OutEnable = true;
         /// <summary>
         /// Проход к электропоездам ЭКСПРЕСС
         /// </summary>
@@ -85,7 +57,46 @@ namespace TurnCtrl
         /// Багажный проход
         /// </summary>
         public bool Baggage = false;
+        /// <summary>
+        /// Возможность прохода на платформу
+        /// </summary>
+        public bool InEnable = true;
+        /// <summary>
+        /// Возможность прохода с платформы
+        /// </summary>
+        public bool OutEnable = true;
+        public RackProperties
+            LeftRack = new RackProperties(),
+            RightRack = new RackProperties();
     }
+    public class WireProperty
+    {
+        /// <summary>
+        /// Номер прохода
+        /// </summary>
+        public byte Number = 1;
+        /// <summary>
+        /// Модель турникета
+        /// </summary>
+        public Turnstile.Model Model;
+        /// <summary>
+        /// Адрес на линии rs485
+        /// </summary>
+        public byte Address = 1;
+        /// <summary>
+        /// COM-порт
+        /// </summary>
+        public string Port = string.Empty;
+        /// <summary>
+        /// Возможность прохода на платформу
+        /// </summary>
+        public bool InEnable = true;
+        /// <summary>
+        /// Возможность прохода с платформы
+        /// </summary>
+        public bool OutEnable = true;
+    }
+
 
     public class RackProperties
     {

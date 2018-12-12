@@ -10,6 +10,7 @@ namespace TurnCtrl
     {
         private ToolTip ttip;
         public TurnLineProperties Properties;
+        public RackProperties ZeroRack = new RackProperties();
 
         public TurnLine()
         {
@@ -73,9 +74,9 @@ namespace TurnCtrl
             ((LineGroup)Parent).SwapGroupsOrder(this, Properties.Id - 1);
         }
 
-        public Turnstile addTurnstile(TurnstileProperty prop, bool Editable)
+        public Turnstile addTurnstile(VisualPassProperty prop, bool Editable)
         {
-            Turnstile turn = new Turnstile(prop, Properties.TurnstileModel, ttip, Editable)
+            Turnstile turn = new Turnstile(prop, ttip, Editable)
             {
                 Top = 25
             };
@@ -100,8 +101,12 @@ namespace TurnCtrl
 
             Controls.Add(
                 new Turnstile(
-                    new TurnstileProperty() { OrderId = (byte)(MaxOrder + 1) },
-                    Properties.TurnstileModel,
+                    new VisualPassProperty() {
+                        OrderId = (byte)(MaxOrder + 1),
+                        Wire = new WireProperty(),
+                        Pass = new PassProperty()
+                        
+                    },
                     ttip,
                     true
                 )

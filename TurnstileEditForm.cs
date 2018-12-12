@@ -5,8 +5,8 @@ namespace TurnCtrl
 {
     public partial class TurnstileEditForm : Form
     {
-        public TurnstileProperty prop;
-        public TurnstileEditForm(TurnstileProperty prop)
+        public VisualPassProperty prop;
+        public TurnstileEditForm(VisualPassProperty prop)
         {
             this.prop = prop;
             InitializeComponent();

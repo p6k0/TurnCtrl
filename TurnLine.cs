@@ -74,7 +74,11 @@ namespace TurnCtrl
             ((LineGroup)Parent).SwapGroupsOrder(this, Properties.Id - 1);
         }
 
+<<<<<<< HEAD
         public Turnstile addTurnstile(VisualPassProperty prop, bool Editable)
+=======
+        public Turnstile addTurnstile(PassProperies prop, bool Editable)
+>>>>>>> parent of 89c9487... Remake
         {
             Turnstile turn = new Turnstile(prop, ttip, Editable)
             {
@@ -97,6 +101,7 @@ namespace TurnCtrl
         private void addPass_click(object sender, System.EventArgs e)
         {
             Turnstile[] turns = getTurnstiles();
+<<<<<<< HEAD
             byte MaxOrder = turns.Length == 0 ? (byte)0 : turns[turns.Length - 1].Properties.OrderId;
 
             Controls.Add(
@@ -112,6 +117,12 @@ namespace TurnCtrl
                 )
                 { Left = 5 + 60 * (MaxOrder), Top = 25 }
            );
+=======
+            int MaxOrder = turns.Length == 0 ? 0 : turns[turns.Length - 1].Properties.Id;
+
+            Controls.Add(new Turnstile(new PassProperies() { Id = MaxOrder + 1 }, Properties.TurnstileModel, null, true) { Left = 5 + 60 * (MaxOrder), Top = 25 });
+            Width = 30 + 60 * (MaxOrder + 1);
+>>>>>>> parent of 89c9487... Remake
             ((LineGroup)Parent).Compose();
         }
         private void editLine_click(object sender, System.EventArgs e)
@@ -135,7 +146,7 @@ namespace TurnCtrl
         public Turnstile[] getTurnstiles()
         {
             List<Turnstile> tmp = Controls.OfType<Turnstile>().ToList();
-            return tmp.OrderBy(si => si.Properties.OrderId).ToArray();
+            return tmp.OrderBy(si => si.Properties.Id).ToArray();
         }
 
 
@@ -184,19 +195,19 @@ namespace TurnCtrl
             }
             for (int i = 0; i < tt.Length; i++)
             {
-                if (tt[i].Properties.OrderId > ((Turnstile)e.Control).Properties.OrderId)
-                    tt[i].Properties.OrderId -= 1;
-                tt[i].Left = 5 + (tt[i].Properties.OrderId - 1) * 60;
+                if (tt[i].Properties.Id > ((Turnstile)e.Control).Properties.Id)
+                    tt[i].Properties.Id -= 1;
+                tt[i].Left = 5 + (tt[i].Properties.Id - 1) * 60;
 
             }
-            Compose();
+            Width = 30 + 60 * (tt[tt.Length - 1].Properties.Id);
         }
 
         public Turnstile getPassByOrder(int OrderId)
         {
             foreach (Turnstile t in getTurnstiles())
             {
-                if (t.Properties.OrderId == OrderId)
+                if (t.Properties.Id == OrderId)
                     return t;
             }
             return null;

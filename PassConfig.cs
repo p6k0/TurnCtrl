@@ -41,6 +41,7 @@ namespace TurnCtrl
         public Turnstile.Model TurnstileModel = Turnstile.Model.ut2000;
     }
 
+<<<<<<< HEAD
     public class VisualPassProperty
     {
         public byte OrderId = 1;
@@ -81,12 +82,35 @@ namespace TurnCtrl
         public Turnstile.Model Model;
         /// <summary>
         /// Адрес на линии rs485
-        /// </summary>
-        public byte Address = 1;
+=======
+    public class PassProperies
+    {
         /// <summary>
-        /// COM-порт
+        /// Порядковый номер в линейке
+>>>>>>> parent of 89c9487... Remake
+        /// </summary>
+        public int Id = 1;
+        /// <summary>
+        /// Номер прохода на станции
+        /// </summary>
+        public int PassNum = 1;
+        /// <summary>
+        /// COM - порт общения
         /// </summary>
         public string Port = string.Empty;
+<<<<<<< HEAD
+=======
+        /// <summary>
+        /// Адрес на линии
+        /// </summary>
+        public int Address = 1;
+        /// <summary>
+        /// Конфигурация стойки
+        /// </summary>
+        public RackProperties
+            LeftRack = new RackProperties(),
+            RightRack = new RackProperties();
+>>>>>>> parent of 89c9487... Remake
         /// <summary>
         /// Возможность прохода на платформу
         /// </summary>
@@ -96,9 +120,13 @@ namespace TurnCtrl
         /// </summary>
         public bool OutEnable = true;
     }
+<<<<<<< HEAD
 
 
     public class RackProperties
+=======
+   public class RackProperties
+>>>>>>> parent of 89c9487... Remake
     {
         /// <summary>
         /// Инвентарный номер стойки
@@ -108,7 +136,7 @@ namespace TurnCtrl
         /// Серийный номер стойки
         /// </summary>
         public ulong SerialNum = 0;
-
+       
 
         //Возможно придется добавить владельца
     }

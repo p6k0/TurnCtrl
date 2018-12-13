@@ -18,14 +18,22 @@ namespace TurnCtrl
 
 
         ToolTip ttip;
+<<<<<<< HEAD
         public VisualPassProperty Properties;
+=======
+        public PassProperies Properties;
+>>>>>>> parent of 89c9487... Remake
         private PictureBox
              Baggage, Express;
 
         public Turnstile()
         {
             _model = Model.ut2000;
+<<<<<<< HEAD
             Properties = new VisualPassProperty();
+=======
+            Properties = new PassProperies();
+>>>>>>> parent of 89c9487... Remake
             InitializeComponent();
             passNum.ContextMenu = new ContextMenu(
             new MenuItem[]
@@ -38,7 +46,11 @@ namespace TurnCtrl
             Region = getTurnstileRegion();
         }
 
+<<<<<<< HEAD
         public Turnstile(VisualPassProperty properties, ToolTip ttip, bool Editable = false)
+=======
+        public Turnstile(PassProperies properties, Model model, ToolTip ttip, bool Editable = false)
+>>>>>>> parent of 89c9487... Remake
         {
             _model = model;
             InitializeComponent();
@@ -79,7 +91,7 @@ namespace TurnCtrl
         }
         private void editPass_click(object sender, System.EventArgs e)
         {
-            using (TurnstileEditForm f = new TurnstileEditForm(Properties))
+            using (PassEditForm f = new PassEditForm(Properties))
             {
                 switch (f.ShowDialog(this))
                 {
@@ -107,14 +119,21 @@ namespace TurnCtrl
             ttip.Show("Инвентарный №: " +  rack.InventoryNum + "\r\nСерийный №:" + rack.SerialNum, (Control)sender);
         }
 
+
+        private void hideTooltip(object sender, System.EventArgs e)
+        {
+            ttip.Hide((Control)sender);
+        }
+
         public void Compose()
         {
-            passNum.Text = Properties.Pass.Number.ToString();
+            passNum.Text = Properties.PassNum.ToString();
 
             switch (model)
             {
                 case Model.ut2000:
                 case Model.ut2000_5:
+<<<<<<< HEAD
                     inHead.Image = Properties.Wire.InEnable ? TurnCtrl.Properties.Resources.ut2000_head_in_normal : TurnCtrl.Properties.Resources.ut2000_head_in_empty;
                     outHead.Image = Properties.Wire.OutEnable ? TurnCtrl.Properties.Resources.ut2000_head_out_normal : TurnCtrl.Properties.Resources.ut2000_head_out_empty;
                     break;
@@ -126,10 +145,23 @@ namespace TurnCtrl
                 case Model.ut2000_9:
                     inHead.Image = Properties.Wire.InEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_in_normal : TurnCtrl.Properties.Resources.ut2000_9_head_in_empty;
                     outHead.Image = Properties.Wire.OutEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_out_normal : TurnCtrl.Properties.Resources.ut2000_9_head_out_empty;
+=======
+                    inHead.Image = Properties.InEnable ? TurnCtrl.Properties.Resources.ut2000_head_in_normal : TurnCtrl.Properties.Resources.ut2000_head_in_empty;
+                    outHead.Image = Properties.OutEnable ? TurnCtrl.Properties.Resources.ut2000_head_out_normal : TurnCtrl.Properties.Resources.ut2000_head_out_empty;
+                    break;
+                case Model.ut2012:
+                case Model.ut2012_14:
+                    inHead.Image = Properties.InEnable ? TurnCtrl.Properties.Resources.ut2012_head_in_normal : TurnCtrl.Properties.Resources.ut2012_head_in_empty;
+                    outHead.Image = Properties.OutEnable ? TurnCtrl.Properties.Resources.ut2012_head_out_normal : TurnCtrl.Properties.Resources.ut2012_head_out_empty;
+                    break;
+                case Model.ut2000_9:
+                    inHead.Image = Properties.InEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_in_normal : TurnCtrl.Properties.Resources.ut2000_9_head_in_empty;
+                    outHead.Image = Properties.OutEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_out_normal : TurnCtrl.Properties.Resources.ut2000_9_head_out_empty;
+>>>>>>> parent of 89c9487... Remake
                     break;
             }
 
-            if (Properties.Pass.Baggage)
+            if (Properties.Baggage)
             {
                 if (Baggage == null)
                 {
@@ -147,7 +179,7 @@ namespace TurnCtrl
             }
 
             #region Иконка экспресс
-            if (Properties.Pass.Express)
+            if (Properties.Express)
             {
                 if (Express == null)
                 {

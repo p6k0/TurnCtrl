@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigReader.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="LineGroup.cs">
       <SubType>UserControl</SubType>
@@ -57,12 +56,11 @@
     <Compile Include="LineGroupEditForm.Designer.cs">
       <DependentUpon>LineGroupEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Problems.cs" />
-    <Compile Include="TurnstileEditForm.cs">
+    <Compile Include="PassEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TurnstileEditForm.Designer.cs">
-      <DependentUpon>TurnstileEditForm.cs</DependentUpon>
+    <Compile Include="PassEditForm.Designer.cs">
+      <DependentUpon>PassEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -107,8 +105,8 @@
     <EmbeddedResource Include="LineGroupEditForm.resx">
       <DependentUpon>LineGroupEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TurnstileEditForm.resx">
-      <DependentUpon>TurnstileEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="PassEditForm.resx">
+      <DependentUpon>PassEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

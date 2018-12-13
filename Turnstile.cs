@@ -19,7 +19,11 @@ namespace TurnCtrl
 
         ToolTip ttip;
 <<<<<<< HEAD
+<<<<<<< HEAD
         public VisualPassProperty Properties;
+=======
+        public PassProperies Properties;
+>>>>>>> parent of 89c9487... Remake
 =======
         public PassProperies Properties;
 >>>>>>> parent of 89c9487... Remake
@@ -30,7 +34,11 @@ namespace TurnCtrl
         {
             _model = Model.ut2000;
 <<<<<<< HEAD
+<<<<<<< HEAD
             Properties = new VisualPassProperty();
+=======
+            Properties = new PassProperies();
+>>>>>>> parent of 89c9487... Remake
 =======
             Properties = new PassProperies();
 >>>>>>> parent of 89c9487... Remake
@@ -47,7 +55,11 @@ namespace TurnCtrl
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         public Turnstile(VisualPassProperty properties, ToolTip ttip, bool Editable = false)
+=======
+        public Turnstile(PassProperies properties, Model model, ToolTip ttip, bool Editable = false)
+>>>>>>> parent of 89c9487... Remake
 =======
         public Turnstile(PassProperies properties, Model model, ToolTip ttip, bool Editable = false)
 >>>>>>> parent of 89c9487... Remake
@@ -134,6 +146,7 @@ namespace TurnCtrl
                 case Model.ut2000:
                 case Model.ut2000_5:
 <<<<<<< HEAD
+<<<<<<< HEAD
                     inHead.Image = Properties.Wire.InEnable ? TurnCtrl.Properties.Resources.ut2000_head_in_normal : TurnCtrl.Properties.Resources.ut2000_head_in_empty;
                     outHead.Image = Properties.Wire.OutEnable ? TurnCtrl.Properties.Resources.ut2000_head_out_normal : TurnCtrl.Properties.Resources.ut2000_head_out_empty;
                     break;
@@ -146,6 +159,8 @@ namespace TurnCtrl
                     inHead.Image = Properties.Wire.InEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_in_normal : TurnCtrl.Properties.Resources.ut2000_9_head_in_empty;
                     outHead.Image = Properties.Wire.OutEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_out_normal : TurnCtrl.Properties.Resources.ut2000_9_head_out_empty;
 =======
+=======
+>>>>>>> parent of 89c9487... Remake
                     inHead.Image = Properties.InEnable ? TurnCtrl.Properties.Resources.ut2000_head_in_normal : TurnCtrl.Properties.Resources.ut2000_head_in_empty;
                     outHead.Image = Properties.OutEnable ? TurnCtrl.Properties.Resources.ut2000_head_out_normal : TurnCtrl.Properties.Resources.ut2000_head_out_empty;
                     break;
@@ -157,6 +172,9 @@ namespace TurnCtrl
                 case Model.ut2000_9:
                     inHead.Image = Properties.InEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_in_normal : TurnCtrl.Properties.Resources.ut2000_9_head_in_empty;
                     outHead.Image = Properties.OutEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_out_normal : TurnCtrl.Properties.Resources.ut2000_9_head_out_empty;
+<<<<<<< HEAD
+>>>>>>> parent of 89c9487... Remake
+=======
 >>>>>>> parent of 89c9487... Remake
                     break;
             }

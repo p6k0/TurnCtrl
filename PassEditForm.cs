@@ -5,9 +5,14 @@ namespace TurnCtrl
 {
     public partial class PassEditForm : Form
     {
+<<<<<<< HEAD:PassEditForm.cs
 <<<<<<< HEAD:TurnstileEditForm.cs
         public VisualPassProperty prop;
         public TurnstileEditForm(VisualPassProperty prop)
+=======
+        public PassProperies prop;
+        public PassEditForm(PassProperies prop)
+>>>>>>> parent of 89c9487... Remake:PassEditForm.cs
 =======
         public PassProperies prop;
         public PassEditForm(PassProperies prop)

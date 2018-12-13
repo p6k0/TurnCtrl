@@ -75,7 +75,11 @@ namespace TurnCtrl
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         public Turnstile addTurnstile(VisualPassProperty prop, bool Editable)
+=======
+        public Turnstile addTurnstile(PassProperies prop, bool Editable)
+>>>>>>> parent of 89c9487... Remake
 =======
         public Turnstile addTurnstile(PassProperies prop, bool Editable)
 >>>>>>> parent of 89c9487... Remake
@@ -102,6 +106,7 @@ namespace TurnCtrl
         {
             Turnstile[] turns = getTurnstiles();
 <<<<<<< HEAD
+<<<<<<< HEAD
             byte MaxOrder = turns.Length == 0 ? (byte)0 : turns[turns.Length - 1].Properties.OrderId;
 
             Controls.Add(
@@ -118,10 +123,15 @@ namespace TurnCtrl
                 { Left = 5 + 60 * (MaxOrder), Top = 25 }
            );
 =======
+=======
+>>>>>>> parent of 89c9487... Remake
             int MaxOrder = turns.Length == 0 ? 0 : turns[turns.Length - 1].Properties.Id;
 
             Controls.Add(new Turnstile(new PassProperies() { Id = MaxOrder + 1 }, Properties.TurnstileModel, null, true) { Left = 5 + 60 * (MaxOrder), Top = 25 });
             Width = 30 + 60 * (MaxOrder + 1);
+<<<<<<< HEAD
+>>>>>>> parent of 89c9487... Remake
+=======
 >>>>>>> parent of 89c9487... Remake
             ((LineGroup)Parent).Compose();
         }

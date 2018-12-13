@@ -42,6 +42,7 @@ namespace TurnCtrl
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public class VisualPassProperty
     {
         public byte OrderId = 1;
@@ -100,6 +101,22 @@ namespace TurnCtrl
         public string Port = string.Empty;
 <<<<<<< HEAD
 =======
+=======
+    public class PassProperies
+    {
+        /// <summary>
+        /// Порядковый номер в линейке
+        /// </summary>
+        public int Id = 1;
+        /// <summary>
+        /// Номер прохода на станции
+        /// </summary>
+        public int PassNum = 1;
+        /// <summary>
+        /// COM - порт общения
+        /// </summary>
+        public string Port = string.Empty;
+>>>>>>> parent of 89c9487... Remake
         /// <summary>
         /// Адрес на линии
         /// </summary>
@@ -110,6 +127,9 @@ namespace TurnCtrl
         public RackProperties
             LeftRack = new RackProperties(),
             RightRack = new RackProperties();
+<<<<<<< HEAD
+>>>>>>> parent of 89c9487... Remake
+=======
 >>>>>>> parent of 89c9487... Remake
         /// <summary>
         /// Возможность прохода на платформу
@@ -121,9 +141,13 @@ namespace TurnCtrl
         public bool OutEnable = true;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
     public class RackProperties
+=======
+   public class RackProperties
+>>>>>>> parent of 89c9487... Remake
 =======
    public class RackProperties
 >>>>>>> parent of 89c9487... Remake

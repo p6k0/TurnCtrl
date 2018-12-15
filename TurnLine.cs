@@ -10,24 +10,6 @@ namespace TurnCtrl
     {
         private ToolTip ttip;
         public TurnLineProperties Properties;
-        public RackProperties ZeroRack = new RackProperties();
-
-        public TurnLine()
-        {
-            Properties = new TurnLineProperties();
-            InitializeComponent();
-            Controls.Add(new Turnstile() { Left = 5, Top = 25 });
-            Upd();
-
-            TextLbl.ContextMenu = new ContextMenu(
-                new MenuItem[] {
-                    new MenuItem("Настройка", editLine_click),
-                    new MenuItem("Добавить проход",addPass_click),
-                    new MenuItem("-"),
-                    new MenuItem("Удалить линейку",deleteLine_click),
-                }
-            );
-        }
 
         public TurnLine(TurnLineProperties Properties, ToolTip ttip, bool Editable = false)
         {
@@ -74,17 +56,10 @@ namespace TurnCtrl
             ((LineGroup)Parent).SwapGroupsOrder(this, Properties.Id - 1);
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        public Turnstile addTurnstile(VisualPassProperty prop, bool Editable)
-=======
         public Turnstile addTurnstile(PassProperies prop, bool Editable)
->>>>>>> parent of 89c9487... Remake
-=======
-        public Turnstile addTurnstile(PassProperies prop, bool Editable)
->>>>>>> parent of 89c9487... Remake
         {
-            Turnstile turn = new Turnstile(prop, ttip, Editable)
+
+            Turnstile turn = new Turnstile(prop, Properties.TurnstileModel, ttip, Editable)
             {
                 Top = 25
             };
@@ -105,34 +80,17 @@ namespace TurnCtrl
         private void addPass_click(object sender, System.EventArgs e)
         {
             Turnstile[] turns = getTurnstiles();
-<<<<<<< HEAD
-<<<<<<< HEAD
-            byte MaxOrder = turns.Length == 0 ? (byte)0 : turns[turns.Length - 1].Properties.OrderId;
+            int MaxOrder = turns.Length == 0 ? 0 : turns[turns.Length - 1].Properties.Order;
 
             Controls.Add(
                 new Turnstile(
-                    new VisualPassProperty() {
-                        OrderId = (byte)(MaxOrder + 1),
-                        Wire = new WireProperty(),
-                        Pass = new PassProperty()
-                        
-                    },
-                    ttip,
-                    true
-                )
-                { Left = 5 + 60 * (MaxOrder), Top = 25 }
-           );
-=======
-=======
->>>>>>> parent of 89c9487... Remake
-            int MaxOrder = turns.Length == 0 ? 0 : turns[turns.Length - 1].Properties.Id;
-
-            Controls.Add(new Turnstile(new PassProperies() { Id = MaxOrder + 1 }, Properties.TurnstileModel, null, true) { Left = 5 + 60 * (MaxOrder), Top = 25 });
+                    new PassProperies()
+                    {
+                        Order = MaxOrder + 1,
+                        LeftRack = turns[turns.Length - 1].Properties.RightRack
+                    }, Properties.TurnstileModel, ttip, true)
+                { Left = 5 + 60 * (MaxOrder), Top = 25 });
             Width = 30 + 60 * (MaxOrder + 1);
-<<<<<<< HEAD
->>>>>>> parent of 89c9487... Remake
-=======
->>>>>>> parent of 89c9487... Remake
             ((LineGroup)Parent).Compose();
         }
         private void editLine_click(object sender, System.EventArgs e)
@@ -156,7 +114,7 @@ namespace TurnCtrl
         public Turnstile[] getTurnstiles()
         {
             List<Turnstile> tmp = Controls.OfType<Turnstile>().ToList();
-            return tmp.OrderBy(si => si.Properties.Id).ToArray();
+            return tmp.OrderBy(si => si.Properties.Order).ToArray();
         }
 
 
@@ -205,39 +163,38 @@ namespace TurnCtrl
             }
             for (int i = 0; i < tt.Length; i++)
             {
-                if (tt[i].Properties.Id > ((Turnstile)e.Control).Properties.Id)
-                    tt[i].Properties.Id -= 1;
-                tt[i].Left = 5 + (tt[i].Properties.Id - 1) * 60;
+                if (tt[i].Properties.Order > ((Turnstile)e.Control).Properties.Order)
+                    tt[i].Properties.Order -= 1;
+                tt[i].Left = 5 + (tt[i].Properties.Order - 1) * 60;
 
             }
-            Width = 30 + 60 * (tt[tt.Length - 1].Properties.Id);
+            Width = 30 + 60 * (tt[tt.Length - 1].Properties.Order);
+            ((LineGroup)Parent).Compose();
         }
 
         public Turnstile getPassByOrder(int OrderId)
         {
             foreach (Turnstile t in getTurnstiles())
             {
-                if (t.Properties.Id == OrderId)
+                if (t.Properties.Order == OrderId)
                     return t;
             }
             return null;
         }
 
-        private void firstEmptyHead_MouseHover(object sender, System.EventArgs e)
+        private void EmptyHead_MouseHover(object sender, System.EventArgs e)
         {
-            Turnstile t = getPassByOrder(1);
-            if (t == null) return;
-            ttip.ToolTipTitle = "Стойка " + Turnstile.ModelName[(int)Properties.TurnstileModel];
-            ttip.Show("Инвентарный №: " + t.Properties.LeftRack.InventoryNum + "\r\nСерийный №:" + t.Properties.LeftRack.SerialNum, firstEmptyHead);
-        }
-
-        private void lastEmptyHead_MouseHover(object sender, System.EventArgs e)
-        {
-
+            bool IsFirst = ((Control)sender).Name == "firstEmptyHead";
             Turnstile[] t = getTurnstiles();
             if (t.Length == 0) return;
+            RackProperties r;
+            if (IsFirst)
+                r = t[0].Properties.LeftRack;
+            else
+                r = t[t.Length - 1].Properties.RightRack;
+            t = null;
             ttip.ToolTipTitle = "Стойка " + Turnstile.ModelName[(int)Properties.TurnstileModel];
-            ttip.Show("Инвентарный №: " + t[t.Length - 1].Properties.RightRack.InventoryNum + "\r\nnСерийный №:" + t[t.Length - 1].Properties.RightRack.SerialNum, lastEmptyHead);
+            ttip.Show("Инвентарный №: " + r.InventoryNum + "\r\nСерийный №:" + r.SerialNum, IsFirst? firstEmptyHead:lastEmptyHead);
         }
 
         private void TurnLine_Paint(object sender, PaintEventArgs e)

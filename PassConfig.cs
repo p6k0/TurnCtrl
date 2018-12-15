@@ -40,17 +40,36 @@ namespace TurnCtrl
         /// </summary>
         public Turnstile.Model TurnstileModel = Turnstile.Model.ut2000;
     }
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public class VisualPassProperty
+    public class WireProperties
     {
-        public byte OrderId = 1;
-        public Turnstile.Model Model = Turnstile.Model.ut2000;
         /// <summary>
-        /// Номер прохода
+        /// Адрес на линии
         /// </summary>
-        public byte Number = 1;
+       public byte Address = 1;
+        /// <summary>
+        /// COM - порт общения
+        /// </summary>
+       public string Port = "Com1";
+    }
+
+    public class PassProperies
+    {
+        /// <summary>
+        /// Порядковый номер в линейке
+        /// </summary>
+        public int Order = 1;
+        /// <summary>
+        /// Номер прохода на станции
+        /// </summary>
+        public int Number = 1;
+        /// <summary>
+        /// Возможность прохода на платформу
+        /// </summary>
+        public bool InEnable = true;
+        /// <summary>
+        /// Возможность прохода с платформы
+        /// </summary>
+        public bool OutEnable = true;
         /// <summary>
         /// Проход к электропоездам ЭКСПРЕСС
         /// </summary>
@@ -60,97 +79,18 @@ namespace TurnCtrl
         /// </summary>
         public bool Baggage = false;
         /// <summary>
-        /// Возможность прохода на платформу
+        /// Свойства сети RS-485
         /// </summary>
-        public bool InEnable = true;
-        /// <summary>
-        /// Возможность прохода с платформы
-        /// </summary>
-        public bool OutEnable = true;
-        public RackProperties
-            LeftRack = new RackProperties(),
-            RightRack = new RackProperties();
-    }
-    public class WireProperty
-    {
-        /// <summary>
-        /// Номер прохода
-        /// </summary>
-        public byte Number = 1;
-        /// <summary>
-        /// Модель турникета
-        /// </summary>
-        public Turnstile.Model Model;
-        /// <summary>
-        /// Адрес на линии rs485
-=======
-    public class PassProperies
-    {
-        /// <summary>
-        /// Порядковый номер в линейке
->>>>>>> parent of 89c9487... Remake
-        /// </summary>
-        public int Id = 1;
-        /// <summary>
-        /// Номер прохода на станции
-        /// </summary>
-        public int PassNum = 1;
-        /// <summary>
-        /// COM - порт общения
-        /// </summary>
-        public string Port = string.Empty;
-<<<<<<< HEAD
-=======
-=======
-    public class PassProperies
-    {
-        /// <summary>
-        /// Порядковый номер в линейке
-        /// </summary>
-        public int Id = 1;
-        /// <summary>
-        /// Номер прохода на станции
-        /// </summary>
-        public int PassNum = 1;
-        /// <summary>
-        /// COM - порт общения
-        /// </summary>
-        public string Port = string.Empty;
->>>>>>> parent of 89c9487... Remake
-        /// <summary>
-        /// Адрес на линии
-        /// </summary>
-        public int Address = 1;
+       public WireProperties Wire = new WireProperties();
+
         /// <summary>
         /// Конфигурация стойки
         /// </summary>
         public RackProperties
             LeftRack = new RackProperties(),
             RightRack = new RackProperties();
-<<<<<<< HEAD
->>>>>>> parent of 89c9487... Remake
-=======
->>>>>>> parent of 89c9487... Remake
-        /// <summary>
-        /// Возможность прохода на платформу
-        /// </summary>
-        public bool InEnable = true;
-        /// <summary>
-        /// Возможность прохода с платформы
-        /// </summary>
-        public bool OutEnable = true;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-    public class RackProperties
-=======
    public class RackProperties
->>>>>>> parent of 89c9487... Remake
-=======
-   public class RackProperties
->>>>>>> parent of 89c9487... Remake
     {
         /// <summary>
         /// Инвентарный номер стойки

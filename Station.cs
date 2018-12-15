@@ -38,7 +38,7 @@ namespace TurnCtrl
             return lg;
         }
 
-        public void LineGroupCreate()
+        public LineGroup LineGroupCreate()
         {
             LineGroup gr = new LineGroup(new LineGroupProperties() { Id = MaxGroupOrderId + 1 }, toolTip, true)
             {
@@ -47,6 +47,7 @@ namespace TurnCtrl
             };
             Controls.Add(gr);
             Compose();
+            return gr;
         }
 
         public void Compose()

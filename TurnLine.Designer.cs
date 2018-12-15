@@ -57,7 +57,7 @@
             this.lastEmptyHead.Size = new System.Drawing.Size(20, 65);
             this.lastEmptyHead.TabIndex = 3;
             this.lastEmptyHead.TabStop = false;
-            this.lastEmptyHead.MouseHover += new System.EventHandler(this.lastEmptyHead_MouseHover);
+            this.lastEmptyHead.MouseHover += new System.EventHandler(this.EmptyHead_MouseHover);
             // 
             // firstEmptyHead
             // 
@@ -66,7 +66,7 @@
             this.firstEmptyHead.Size = new System.Drawing.Size(20, 65);
             this.firstEmptyHead.TabIndex = 2;
             this.firstEmptyHead.TabStop = false;
-            this.firstEmptyHead.MouseHover += new System.EventHandler(this.firstEmptyHead_MouseHover);
+            this.firstEmptyHead.MouseHover += new System.EventHandler(this.EmptyHead_MouseHover);
             // 
             // TurnLine
             // 

@@ -18,30 +18,14 @@ namespace TurnCtrl
 
 
         ToolTip ttip;
-<<<<<<< HEAD
-<<<<<<< HEAD
-        public VisualPassProperty Properties;
-=======
         public PassProperies Properties;
->>>>>>> parent of 89c9487... Remake
-=======
-        public PassProperies Properties;
->>>>>>> parent of 89c9487... Remake
         private PictureBox
              Baggage, Express;
 
         public Turnstile()
         {
             _model = Model.ut2000;
-<<<<<<< HEAD
-<<<<<<< HEAD
-            Properties = new VisualPassProperty();
-=======
             Properties = new PassProperies();
->>>>>>> parent of 89c9487... Remake
-=======
-            Properties = new PassProperies();
->>>>>>> parent of 89c9487... Remake
             InitializeComponent();
             passNum.ContextMenu = new ContextMenu(
             new MenuItem[]
@@ -54,15 +38,7 @@ namespace TurnCtrl
             Region = getTurnstileRegion();
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        public Turnstile(VisualPassProperty properties, ToolTip ttip, bool Editable = false)
-=======
         public Turnstile(PassProperies properties, Model model, ToolTip ttip, bool Editable = false)
->>>>>>> parent of 89c9487... Remake
-=======
-        public Turnstile(PassProperies properties, Model model, ToolTip ttip, bool Editable = false)
->>>>>>> parent of 89c9487... Remake
         {
             _model = model;
             InitializeComponent();
@@ -108,7 +84,6 @@ namespace TurnCtrl
                 switch (f.ShowDialog(this))
                 {
                     case DialogResult.OK:
-                        Properties = f.prop;
                         Compose();
                        // ((TurnLine)Parent).PassReconfigured(Properties);
                         break;
@@ -126,7 +101,7 @@ namespace TurnCtrl
         private void PassHead_MouseHover(object sender, System.EventArgs e)
         {
             ttip.ToolTipTitle = "Стойка " + ModelName[(int)model];
-            RackProperties rack = ((Control)sender).Name == "inHead" ? Properties.LeftRack : Properties.RightRack;
+            RackProperties rack = ((Control)sender).Name == "inHead" ?Properties.RightRack :Properties.LeftRack ;
 
             ttip.Show("Инвентарный №: " +  rack.InventoryNum + "\r\nСерийный №:" + rack.SerialNum, (Control)sender);
         }
@@ -139,28 +114,12 @@ namespace TurnCtrl
 
         public void Compose()
         {
-            passNum.Text = Properties.PassNum.ToString();
+            passNum.Text = Properties.Number.ToString();
 
             switch (model)
             {
                 case Model.ut2000:
                 case Model.ut2000_5:
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    inHead.Image = Properties.Wire.InEnable ? TurnCtrl.Properties.Resources.ut2000_head_in_normal : TurnCtrl.Properties.Resources.ut2000_head_in_empty;
-                    outHead.Image = Properties.Wire.OutEnable ? TurnCtrl.Properties.Resources.ut2000_head_out_normal : TurnCtrl.Properties.Resources.ut2000_head_out_empty;
-                    break;
-                case Model.ut2012:
-                case Model.ut2012_14:
-                    inHead.Image = Properties.Wire.InEnable ? TurnCtrl.Properties.Resources.ut2012_head_in_normal : TurnCtrl.Properties.Resources.ut2012_head_in_empty;
-                    outHead.Image = Properties.Wire.OutEnable ? TurnCtrl.Properties.Resources.ut2012_head_out_normal : TurnCtrl.Properties.Resources.ut2012_head_out_empty;
-                    break;
-                case Model.ut2000_9:
-                    inHead.Image = Properties.Wire.InEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_in_normal : TurnCtrl.Properties.Resources.ut2000_9_head_in_empty;
-                    outHead.Image = Properties.Wire.OutEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_out_normal : TurnCtrl.Properties.Resources.ut2000_9_head_out_empty;
-=======
-=======
->>>>>>> parent of 89c9487... Remake
                     inHead.Image = Properties.InEnable ? TurnCtrl.Properties.Resources.ut2000_head_in_normal : TurnCtrl.Properties.Resources.ut2000_head_in_empty;
                     outHead.Image = Properties.OutEnable ? TurnCtrl.Properties.Resources.ut2000_head_out_normal : TurnCtrl.Properties.Resources.ut2000_head_out_empty;
                     break;
@@ -172,10 +131,6 @@ namespace TurnCtrl
                 case Model.ut2000_9:
                     inHead.Image = Properties.InEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_in_normal : TurnCtrl.Properties.Resources.ut2000_9_head_in_empty;
                     outHead.Image = Properties.OutEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_out_normal : TurnCtrl.Properties.Resources.ut2000_9_head_out_empty;
-<<<<<<< HEAD
->>>>>>> parent of 89c9487... Remake
-=======
->>>>>>> parent of 89c9487... Remake
                     break;
             }
 

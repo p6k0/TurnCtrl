@@ -87,7 +87,7 @@ namespace TurnCtrl
                     new PassProperies()
                     {
                         Order = MaxOrder + 1,
-                        LeftRack = turns[turns.Length - 1].Properties.RightRack
+                        LeftRack = MaxOrder == 0 ? new RackProperties() : turns[turns.Length - 1].Properties.RightRack
                     }, Properties.TurnstileModel, ttip, true)
                 { Left = 5 + 60 * (MaxOrder), Top = 25 });
             Width = 30 + 60 * (MaxOrder + 1);

@@ -67,7 +67,7 @@ namespace TurnCtrl
             }
             #endregion
 
-                Console.WriteLine();
+               Console.WriteLine();
             return Output;
         }
 

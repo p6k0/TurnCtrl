@@ -90,8 +90,9 @@ namespace TurnCtrl
         {
             if (MessageBox.Show("Вы действительно хотите удалить группу линеек?", "Подтверждение действия", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
+                Station st = (Station)Parent;
                 Parent.Controls.Remove(this);
-                ((Station)Parent).Compose();
+                st.Compose();
             }
         }
 

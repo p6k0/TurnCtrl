@@ -5,6 +5,9 @@ namespace TurnCtrl
 {
     public partial class Turnstile : UserControl
     {
+        public delegate void PassNumClickHandler(Turnstile turn);
+        public event PassNumClickHandler PassNumClick; 
+
         public Model model
         {
             get => _model;

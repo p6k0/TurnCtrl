@@ -7,6 +7,10 @@ namespace TurnCtrl
 {
     public partial class LineGroup : UserControl
     {
+        public delegate void LineGroupHeaderClickHandler(LineGroup linegroup);
+        public event LineGroupHeaderClickHandler HeaderClick;
+
+
         private ToolTip ttip;
         public LineGroupProperties Properties;
 

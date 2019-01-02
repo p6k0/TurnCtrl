@@ -8,6 +8,9 @@ namespace TurnCtrl
 {
     public partial class TurnLine : UserControl
     {
+        public delegate void TurnLineHeaderClickHandler(TurnLine turnline);
+        public event TurnLineHeaderClickHandler HeaderClick;
+
         private ToolTip ttip;
         public TurnLineProperties Properties;
 
@@ -194,7 +197,7 @@ namespace TurnCtrl
                 r = t[t.Length - 1].Properties.RightRack;
             t = null;
             ttip.ToolTipTitle = "Стойка " + Turnstile.ModelName[(int)Properties.TurnstileModel];
-            ttip.Show("Инвентарный №: " + r.InventoryNum + "\r\nСерийный №:" + r.SerialNum, IsFirst? firstEmptyHead:lastEmptyHead);
+            ttip.Show("Инвентарный №: " + r.InventoryNum + "\r\nСерийный №:" + r.SerialNum, IsFirst ? firstEmptyHead : lastEmptyHead);
         }
 
         private void TurnLine_Paint(object sender, PaintEventArgs e)

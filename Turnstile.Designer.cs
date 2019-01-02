@@ -92,6 +92,7 @@
             this.passNum.Cursor = System.Windows.Forms.Cursors.Hand;
             this.passNum.FlatAppearance.BorderSize = 0;
             this.passNum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.passNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
             this.passNum.Location = new System.Drawing.Point(20, 130);
             this.passNum.Margin = new System.Windows.Forms.Padding(0);
             this.passNum.Name = "passNum";

@@ -8,6 +8,11 @@ namespace TurnCtrl
 {
     public partial class Station : UserControl
     {
+        public LineGroup.LineGroupHeaderClickHandler GroupHeaderClick;
+        public TurnLine.TurnLineHeaderClickHandler LineHeaderClick;
+        public Turnstile.PassNumClickHandler PassNumClick; 
+
+
         public StationProperties Properties;
         public Station()
         {
@@ -30,10 +35,13 @@ namespace TurnCtrl
 
         public LineGroup LineGroupAdd(LineGroupProperties prop, bool Editable)
         {
+            
             LineGroup lg = new LineGroup(prop, toolTip, Editable)
             {
                 Width = ClientRectangle.Width
+                
             };
+            lg.HeaderClick += this.GroupHeaderClick;
             Controls.Add(lg);
             return lg;
         }

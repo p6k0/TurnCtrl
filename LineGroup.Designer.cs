@@ -41,6 +41,7 @@
             this.groupName.TabIndex = 0;
             this.groupName.Text = "Pp";
             this.groupName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.groupName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.groupName_MouseClick);
             // 
             // LineGroup
             // 

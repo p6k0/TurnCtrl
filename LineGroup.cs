@@ -7,7 +7,7 @@ namespace TurnCtrl
 {
     public partial class LineGroup : UserControl
     {
-        public delegate void LineGroupHeaderClickHandler(LineGroup linegroup);
+        public delegate void LineGroupHeaderClickHandler(LineGroup linegroup,MouseEventArgs e);
         public event LineGroupHeaderClickHandler HeaderClick;
 
 
@@ -194,6 +194,11 @@ namespace TurnCtrl
                 if (ln.Properties.Id == OrderId)
                     return ln;
             return null;
+        }
+
+        private void groupName_MouseClick(object sender, MouseEventArgs e)
+        {
+            HeaderClick(this, new MouseEventArgs(Control.MouseButtons, 0, Cursor.Position.X, Cursor.Position.Y, 0));
         }
     }
 }

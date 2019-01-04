@@ -33,22 +33,21 @@ namespace TurnCtrl
             AutoScroll = true;
         }
 
-        public LineGroup LineGroupAdd(LineGroupProperties prop, bool Editable)
+        public LineGroup LineGroupAdd(LineGroupProperties prop)
         {
             
-            LineGroup lg = new LineGroup(prop, toolTip, Editable)
+            LineGroup lg = new LineGroup(prop, toolTip)
             {
                 Width = ClientRectangle.Width
                 
             };
-            lg.HeaderClick += this.GroupHeaderClick;
             Controls.Add(lg);
             return lg;
         }
 
         public LineGroup LineGroupCreate()
         {
-            LineGroup gr = new LineGroup(new LineGroupProperties() { Id = MaxGroupOrderId + 1 }, toolTip, true)
+            LineGroup gr = new LineGroup(new LineGroupProperties() { Id = MaxGroupOrderId + 1 }, toolTip)
             {
                 Width = ClientRectangle.Width,
                 Left = 0

@@ -8,18 +8,20 @@ namespace TurnCtrl
 {
     public partial class TurnLine : UserControl
     {
-        public delegate void TurnLineHeaderClickHandler(TurnLine turnline);
+        #region Событие действия Линейки
+        public delegate void TurnLineHeaderClickHandler(object sender,MouseEventArgs e);
         public event TurnLineHeaderClickHandler HeaderClick;
+        #endregion
 
         private ToolTip ttip;
         public TurnLineProperties Properties;
 
-        public TurnLine(TurnLineProperties Properties, ToolTip ttip, bool Editable = false)
+        public TurnLine(TurnLineProperties Properties, ToolTip ttip)
         {
             this.ttip = ttip;
             this.Properties = Properties;
             InitializeComponent();
-            MenuItem[] mi;
+            /*MenuItem[] mi;
             if (Editable)
             {
                 mi = new MenuItem[] {
@@ -41,7 +43,7 @@ namespace TurnCtrl
                     new MenuItem("Удалить линейку",deleteLine_click),
                 };
             }
-            TextLbl.ContextMenu = new ContextMenu(mi);
+            TextLbl.ContextMenu = new ContextMenu(mi);*/
             Upd();
         }
 
@@ -59,10 +61,10 @@ namespace TurnCtrl
             ((LineGroup)Parent).SwapGroupsOrder(this, Properties.Id - 1);
         }
 
-        public Turnstile addTurnstile(PassProperies prop, bool Editable)
+        public Turnstile addTurnstile(PassProperies prop)
         {
 
-            Turnstile turn = new Turnstile(prop, Properties.TurnstileModel, ttip, Editable)
+            Turnstile turn = new Turnstile(prop, Properties.TurnstileModel, ttip)
             {
                 Top = 25
             };
@@ -91,12 +93,12 @@ namespace TurnCtrl
                     {
                         Order = MaxOrder + 1,
                         LeftRack = MaxOrder == 0 ? new RackProperties() : turns[turns.Length - 1].Properties.RightRack
-                    }, Properties.TurnstileModel, ttip, true)
+                    }, Properties.TurnstileModel, ttip)
                 { Left = 5 + 60 * (MaxOrder), Top = 25 });
             Width = 30 + 60 * (MaxOrder + 1);
             ((LineGroup)Parent).Compose();
         }
-        private void editLine_click(object sender, System.EventArgs e)
+       /* private void editLine_click(object sender, System.EventArgs e)
         {
             using (TurnLineEditForm f = new TurnLineEditForm(Properties))
             {
@@ -112,7 +114,7 @@ namespace TurnCtrl
                         return;
                 }
             };
-        }
+        }*/
 
         public Turnstile[] getTurnstiles()
         {
@@ -210,6 +212,9 @@ namespace TurnCtrl
             }
         }
 
-
+        private void TextLbl_MouseClick(object sender, MouseEventArgs e)
+        {
+            HeaderClick(this, e);
+        }
     }
 }

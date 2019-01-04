@@ -37,10 +37,10 @@ namespace TurnCtrl
             byte tmp;
             foreach (XmlAttribute a in map.DocumentElement.SelectNodes("Group/Line/Turn[@PassNum]/@PassNum"))
             {
-                
+
                 tmp = Convert.ToByte(a.Value);
-                
-                if (tmp == 0|| passNums.Contains(tmp))
+
+                if (tmp == 0 || passNums.Contains(tmp))
                     continue;
                 XmlNodeList nl = map.DocumentElement.SelectNodes("Group/Line/Turn[@PassNum=\"" + tmp + "\"]");
                 if (nl.Count > 1)
@@ -51,7 +51,7 @@ namespace TurnCtrl
                 }
                 passNums.Add(tmp);
             }
-            
+
             passNums.Clear();
             #endregion
             #region проверка на порт
@@ -62,12 +62,12 @@ namespace TurnCtrl
 
                 foreach (XmlElement a in tmpnl)
                 {
-                    Output += "\t" + GetHumanPathOfPass(a) +"\r\n";
+                    Output += "\t" + GetHumanPathOfPass(a) + "\r\n";
                 }
             }
             #endregion
 
-               Console.WriteLine();
+            Console.WriteLine();
             return Output;
         }
 
@@ -150,16 +150,19 @@ namespace TurnCtrl
             station.Properties.ExpressCode = Convert.ToInt32(map.DocumentElement.GetAttribute("E"));
             foreach (XmlElement lgEl in map.DocumentElement.SelectNodes("Group"))
             {
-                LineGroup lg = station.LineGroupAdd(CreateLineGroupProperties(lgEl), editable);
+                LineGroup lg = station.LineGroupAdd(CreateLineGroupProperties(lgEl));
+                lg.HeaderClick += station.GroupHeaderClick;
                 foreach (XmlElement lnEl in lgEl.SelectNodes("Line"))
                 {
-                    TurnLine ln = lg.addLine(CreateTurnLineProperties(lnEl), editable);
+                    TurnLine ln = lg.addLine(CreateTurnLineProperties(lnEl));
+                    ln.HeaderClick += station.LineHeaderClick;
                     RackProperties prevRack = CreateRackProperty((XmlElement)lnEl.SelectSingleNode("Turn[@Order=\"0\"]"));
                     for (int i = 1; i < lnEl.SelectNodes("Turn").Count; i++)
                     {
                         XmlElement tEl = (XmlElement)lnEl.SelectSingleNode("Turn[@Order=\"" + i + "\"]");
                         PassProperies p = CreatePassProperty(tEl, prevRack, editable);
-                        Turnstile t = ln.addTurnstile(p, editable);
+                        Turnstile t = ln.addTurnstile(p);
+                        t.PassNumClick += station.PassNumClick;
                         prevRack = p.RightRack;
                         t.Compose();
                     }

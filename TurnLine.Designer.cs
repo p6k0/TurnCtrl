@@ -48,6 +48,7 @@
             this.TextLbl.TabIndex = 0;
             this.TextLbl.Text = "Линейка";
             this.TextLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TextLbl.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TextLbl_MouseClick);
             // 
             // lastEmptyHead
             // 

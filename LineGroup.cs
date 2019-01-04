@@ -7,7 +7,7 @@ namespace TurnCtrl
 {
     public partial class LineGroup : UserControl
     {
-        public delegate void LineGroupHeaderClickHandler(LineGroup linegroup,MouseEventArgs e);
+        public delegate void LineGroupHeaderClickHandler(object sender,MouseEventArgs e);
         public event LineGroupHeaderClickHandler HeaderClick;
 
 
@@ -18,21 +18,16 @@ namespace TurnCtrl
         public LineGroup()
         {
             InitializeComponent();
-            ContextMenu = new ContextMenu(new MenuItem[]
-                {
-                    new MenuItem("Конфигурация",editGroup_click),
-                    new MenuItem("-"),
-                    new MenuItem("Удалить",deleteGroup_click)
-                });
         }
 
-        public LineGroup(LineGroupProperties Properties, ToolTip ttip, bool Editable)
+        public LineGroup(LineGroupProperties Properties, ToolTip ttip)
         {
             this.ttip = ttip;
             this.Properties = Properties;
             InitializeComponent();
             groupName.Text = Properties.Name;
-            MenuItem[] items;
+
+            /*MenuItem[] items;
             if (Editable)
             {
                 items = new MenuItem[]
@@ -55,23 +50,23 @@ namespace TurnCtrl
                     new MenuItem("Вернуть в нормальный режим",deleteGroup_click)
                 };
             }
-            groupName.ContextMenu = new ContextMenu(items);
+           groupName.ContextMenu = new ContextMenu(items);*/
         }
 
-        public TurnLine addLine(TurnLineProperties prop, bool Editable)
+        public TurnLine addLine(TurnLineProperties prop)
         {
-            TurnLine ln = new TurnLine(prop, ttip, Editable);
+            TurnLine ln = new TurnLine(prop, ttip);
             Controls.Add(ln);
             return ln;
         }
         #region перемещение в станции
-        private void moveTop_click(object sender, EventArgs e)
+        public void MoveTop()
         {
             if (Properties.Id == 1)
                 return;
             ((Station)Parent).SwapGroupsOrder(this, Properties.Id - 1);
         }
-        private void moveBottop_click(object sender, EventArgs e)
+        public void MoveBottom()
         {
             if (Properties.Id == ((Station)Parent).MaxGroupOrderId)
                 return;
@@ -81,7 +76,7 @@ namespace TurnCtrl
 
         private void addLine_click(object sender, EventArgs e)
         {
-            Controls.Add(new TurnLine(new TurnLineProperties() { Id = MaxLineOrderId + 1, }, ttip, true) { Top = groupName.Height + LinePadding });
+            Controls.Add(new TurnLine(new TurnLineProperties() { Id = MaxLineOrderId + 1, }, ttip) { Top = groupName.Height + LinePadding });
             Compose();
 
         }
@@ -96,7 +91,7 @@ namespace TurnCtrl
             }
         }
 
-        private void editGroup_click(object sender, EventArgs e)
+       /* private void editGroup_click(object sender, EventArgs e)
         {
             using (LineGroupEditForm f = new LineGroupEditForm(Properties))
             {
@@ -110,7 +105,7 @@ namespace TurnCtrl
                         return;
                 }
             }
-        }
+        }*/
 
         public void Upd()
         {
@@ -198,7 +193,7 @@ namespace TurnCtrl
 
         private void groupName_MouseClick(object sender, MouseEventArgs e)
         {
-            HeaderClick(this, new MouseEventArgs(Control.MouseButtons, 0, Cursor.Position.X, Cursor.Position.Y, 0));
+            HeaderClick(this, e);
         }
     }
 }

@@ -5,8 +5,8 @@ namespace TurnCtrl
 {
     public partial class Turnstile : UserControl
     {
-        public delegate void PassNumClickHandler(Turnstile turn);
-        public event PassNumClickHandler PassNumClick; 
+        public delegate void PassNumClickHandler(object sender, MouseEventArgs e);
+        public event PassNumClickHandler PassNumClick;
 
         public Model model
         {
@@ -30,25 +30,17 @@ namespace TurnCtrl
             _model = Model.ut2000;
             Properties = new PassProperies();
             InitializeComponent();
-            passNum.ContextMenu = new ContextMenu(
-            new MenuItem[]
-                {
-                    new MenuItem("Конфигурация",editPass_click),
-                    new MenuItem("-"),
-                    new MenuItem("Удалить",deletePass_click)
-                }
-            );
             Region = getTurnstileRegion();
         }
 
-        public Turnstile(PassProperies properties, Model model, ToolTip ttip, bool Editable = false)
+        public Turnstile(PassProperies properties, Model model, ToolTip ttip)
         {
             _model = model;
             InitializeComponent();
             this.ttip = ttip;
             Region = getTurnstileRegion();
             Properties = properties;
-            MenuItem[] items;
+            /*MenuItem[] items;
             if (Editable)
             {
                 items = new MenuItem[]
@@ -67,52 +59,58 @@ namespace TurnCtrl
                     new MenuItem("Вернуть в нормальный режим",deletePass_click)
                 };
             }
-            passNum.ContextMenu = new ContextMenu(items);
+            passNum.ContextMenu = new ContextMenu(items);*/
             Compose();
         }
 
-        private void deletePass_click(object sender, System.EventArgs e)
-        {
-            if (MessageBox.Show("Вы действительно хотите удалить проход?", "Подтверждение действия", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
-                Parent.Controls.Remove(this);
-        }
-        private void openPass_click(object sender, System.EventArgs e)
-        {
-            Parent.Controls.Remove(this);
-        }
+        /*private void deletePass_click(object sender, System.EventArgs e)
+       {
+           if (MessageBox.Show("Вы действительно хотите удалить проход?", "Подтверждение действия", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+               Parent.Controls.Remove(this);
+       }
+       private void openPass_click(object sender, System.EventArgs e)
+       {
+           Parent.Controls.Remove(this);
+       }
         private void editPass_click(object sender, System.EventArgs e)
-        {
-            using (PassEditForm f = new PassEditForm(Properties))
-            {
-                switch (f.ShowDialog(this))
-                {
-                    case DialogResult.OK:
-                        Compose();
-                       // ((TurnLine)Parent).PassReconfigured(Properties);
-                        break;
-                    default:
-                        return;
-                }
-            }
-        }
+         {
+             using (PassEditForm f = new PassEditForm(Properties))
+             {
+                 switch (f.ShowDialog(this))
+                 {
+                     case DialogResult.OK:
+                         Compose();
+                        // ((TurnLine)Parent).PassReconfigured(Properties);
+                         break;
+                     default:
+                         return;
+                 }
+             }
+         }*/
 
-        private void passNum_MouseClick(object sender, MouseEventArgs e)
-        {
-            passNum.ContextMenu.Show((Control)sender, e.Location);
-        }
+        /*  private void passNum_MouseClick(object sender, MouseEventArgs e)
+          {
+              PassNumClick(this, e);
+              passNum.ContextMenu.Show((Control)sender, e.Location);
+          }*/
 
         private void PassHead_MouseHover(object sender, System.EventArgs e)
         {
             ttip.ToolTipTitle = "Стойка " + ModelName[(int)model];
-            RackProperties rack = ((Control)sender).Name == "inHead" ?Properties.RightRack :Properties.LeftRack ;
+            RackProperties rack = ((Control)sender).Name == "inHead" ? Properties.RightRack : Properties.LeftRack;
 
-            ttip.Show("Инвентарный №: " +  rack.InventoryNum + "\r\nСерийный №:" + rack.SerialNum, (Control)sender);
+            ttip.Show("Инвентарный №: " + rack.InventoryNum + "\r\nСерийный №:" + rack.SerialNum, (Control)sender);
         }
 
 
         private void hideTooltip(object sender, System.EventArgs e)
         {
             ttip.Hide((Control)sender);
+        }
+
+        private void passNum_MouseClick(object sender, MouseEventArgs e)
+        {
+            PassNumClick(this, e);
         }
 
         public void Compose()

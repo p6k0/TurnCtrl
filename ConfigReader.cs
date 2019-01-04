@@ -88,13 +88,13 @@ namespace TurnCtrl
             {
 
                 XmlElement lgel = map.CreateElement("Group");
-                lgel.SetAttribute("Order", lgp.Properties.Id.ToString());
+                lgel.SetAttribute("Order", lgp.Properties.Order.ToString());
                 lgel.SetAttribute("Name", lgp.Properties.Name);
                 stel.AppendChild(lgel);
                 foreach (TurnLine ln in lgp.getTurnLines())
                 {
                     XmlElement lnel = map.CreateElement("Line");
-                    lnel.SetAttribute("Order", ln.Properties.Id.ToString());
+                    lnel.SetAttribute("Order", ln.Properties.Order.ToString());
                     lnel.SetAttribute("Name", ln.Properties.Name);
                     lnel.SetAttribute("Type", ln.Properties.TurnstileModel.ToString());
                     lgel.AppendChild(lnel);
@@ -231,7 +231,7 @@ namespace TurnCtrl
         {
             return new LineGroupProperties()
             {
-                Id = Convert.ToByte(el.GetAttribute("Order")),
+                Order = Convert.ToByte(el.GetAttribute("Order")),
                 Name = el.GetAttribute("Name")
             };
         }
@@ -239,7 +239,7 @@ namespace TurnCtrl
         {
             return new TurnLineProperties()
             {
-                Id = Convert.ToByte(el.GetAttribute("Order")),
+                Order = Convert.ToByte(el.GetAttribute("Order")),
                 Name = el.GetAttribute("Name"),
                 TurnstileModel = (Turnstile.Model)Enum.Parse(typeof(Turnstile.Model), el.GetAttribute("Type"))
             };

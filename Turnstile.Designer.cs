@@ -148,7 +148,6 @@
             // 
             // inHead
             // 
-            this.inHead.Image = global::TurnCtrl.Properties.Resources.ut2000_head_in_normal;
             this.inHead.Location = new System.Drawing.Point(60, 65);
             this.inHead.Margin = new System.Windows.Forms.Padding(4);
             this.inHead.Name = "inHead";
@@ -159,7 +158,6 @@
             // 
             // outHead
             // 
-            this.outHead.Image = global::TurnCtrl.Properties.Resources.ut2000_head_out_normal;
             this.outHead.Location = new System.Drawing.Point(0, 0);
             this.outHead.Margin = new System.Windows.Forms.Padding(4);
             this.outHead.Name = "outHead";

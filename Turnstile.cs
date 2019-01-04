@@ -14,7 +14,7 @@ namespace TurnCtrl
             set
             {
                 _model = value;
-                Compose();
+                UpdateSkin();
             }
         }
         private Model _model;
@@ -40,59 +40,8 @@ namespace TurnCtrl
             this.ttip = ttip;
             Region = getTurnstileRegion();
             Properties = properties;
-            /*MenuItem[] items;
-            if (Editable)
-            {
-                items = new MenuItem[]
-                {
-                    new MenuItem("Конфигурация",editPass_click),
-                    new MenuItem("-"),
-                    new MenuItem("Удалить",deletePass_click)
-                };
-            }
-            else
-            {
-                items = new MenuItem[]
-                {
-                    new MenuItem("Аварийное открытие",editPass_click),
-                    new MenuItem("-"),
-                    new MenuItem("Вернуть в нормальный режим",deletePass_click)
-                };
-            }
-            passNum.ContextMenu = new ContextMenu(items);*/
             Compose();
         }
-
-        /*private void deletePass_click(object sender, System.EventArgs e)
-       {
-           if (MessageBox.Show("Вы действительно хотите удалить проход?", "Подтверждение действия", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
-               Parent.Controls.Remove(this);
-       }
-       private void openPass_click(object sender, System.EventArgs e)
-       {
-           Parent.Controls.Remove(this);
-       }
-        private void editPass_click(object sender, System.EventArgs e)
-         {
-             using (PassEditForm f = new PassEditForm(Properties))
-             {
-                 switch (f.ShowDialog(this))
-                 {
-                     case DialogResult.OK:
-                         Compose();
-                        // ((TurnLine)Parent).PassReconfigured(Properties);
-                         break;
-                     default:
-                         return;
-                 }
-             }
-         }*/
-
-        /*  private void passNum_MouseClick(object sender, MouseEventArgs e)
-          {
-              PassNumClick(this, e);
-              passNum.ContextMenu.Show((Control)sender, e.Location);
-          }*/
 
         private void PassHead_MouseHover(object sender, System.EventArgs e)
         {
@@ -113,10 +62,8 @@ namespace TurnCtrl
             PassNumClick(this, e);
         }
 
-        public void Compose()
+        private void UpdateSkin()
         {
-            passNum.Text = Properties.Number.ToString();
-
             switch (model)
             {
                 case Model.ut2000:
@@ -134,6 +81,13 @@ namespace TurnCtrl
                     outHead.Image = Properties.OutEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_out_normal : TurnCtrl.Properties.Resources.ut2000_9_head_out_empty;
                     break;
             }
+        }
+
+        public void Compose()
+        {
+            passNum.Text = Properties.Number.ToString();
+
+            
 
             if (Properties.Baggage)
             {

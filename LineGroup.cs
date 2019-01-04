@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -7,7 +6,7 @@ namespace TurnCtrl
 {
     public partial class LineGroup : UserControl
     {
-        public delegate void LineGroupHeaderClickHandler(object sender,MouseEventArgs e);
+        public delegate void LineGroupHeaderClickHandler(object sender, MouseEventArgs e);
         public event LineGroupHeaderClickHandler HeaderClick;
 
 
@@ -24,33 +23,14 @@ namespace TurnCtrl
         {
             this.ttip = ttip;
             this.Properties = Properties;
+            Properties.NameChanged += Properties_NameChanged;
             InitializeComponent();
             groupName.Text = Properties.Name;
+        }
 
-            /*MenuItem[] items;
-            if (Editable)
-            {
-                items = new MenuItem[]
-                {
-                    new MenuItem("Конфигурация",editGroup_click),
-                    new MenuItem("Добавить линейку",addLine_click),
-                    new MenuItem("-"),
-                    new MenuItem("Вверх по списку",moveTop_click),
-                    new MenuItem("Вниз по списку",moveBottop_click),
-                    new MenuItem("-"),
-                    new MenuItem("Удалить",deleteGroup_click)
-                };
-            }
-            else
-            {
-                items = new MenuItem[]
-                {
-                    new MenuItem("Аварийное открытие",editGroup_click),
-                    new MenuItem("-"),
-                    new MenuItem("Вернуть в нормальный режим",deleteGroup_click)
-                };
-            }
-           groupName.ContextMenu = new ContextMenu(items);*/
+        private void Properties_NameChanged(object Sender)
+        {
+            groupName.Text = Properties.Name;
         }
 
         public TurnLine addLine(TurnLineProperties prop)
@@ -62,55 +42,52 @@ namespace TurnCtrl
         #region перемещение в станции
         public void MoveTop()
         {
-            if (Properties.Id == 1)
+            if (Properties.Order == 1)
                 return;
-            ((Station)Parent).SwapGroupsOrder(this, Properties.Id - 1);
+            ((Station)Parent).SwapGroupsOrder(this, Properties.Order - 1);
         }
         public void MoveBottom()
         {
-            if (Properties.Id == ((Station)Parent).MaxGroupOrderId)
+            if (Properties.Order == ((Station)Parent).MaxGroupOrderId)
                 return;
-            ((Station)Parent).SwapGroupsOrder(this, Properties.Id + 1);
+            ((Station)Parent).SwapGroupsOrder(this, Properties.Order + 1);
         }
         #endregion
 
-        private void addLine_click(object sender, EventArgs e)
+        public void createLine()
         {
-            Controls.Add(new TurnLine(new TurnLineProperties() { Id = MaxLineOrderId + 1, }, ttip) { Top = groupName.Height + LinePadding });
+            TurnLine t = new TurnLine(
+                new TurnLineProperties()
+                {
+                    Order = (byte)(MaxLineOrderId + 1)
+                }
+                , ttip)
+            {
+                Top = groupName.Height + LinePadding
+            };
+            t.HeaderClick += ((Station)Parent).LineHeaderClick;
+            Controls.Add(t);
             Compose();
 
         }
 
-        private void deleteGroup_click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Вы действительно хотите удалить группу линеек?", "Подтверждение действия", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
-            {
-                Station st = (Station)Parent;
-                Parent.Controls.Remove(this);
-                st.Compose();
-            }
-        }
 
-       /* private void editGroup_click(object sender, EventArgs e)
-        {
-            using (LineGroupEditForm f = new LineGroupEditForm(Properties))
-            {
-                switch (f.ShowDialog(this))
-                {
-                    case DialogResult.OK:
-                        Properties = f.Properties;
-                        Upd();
-                        break;
-                    default:
-                        return;
-                }
-            }
-        }*/
+        /* private void editGroup_click(object sender, EventArgs e)
+         {
+             using (LineGroupEditForm f = new LineGroupEditForm(Properties))
+             {
+                 switch (f.ShowDialog(this))
+                 {
+                     case DialogResult.OK:
+                         Properties = f.Properties;
+                         Upd();
+                         break;
+                     default:
+                         return;
+                 }
+             }
+         }*/
 
-        public void Upd()
-        {
-            groupName.Text = Properties.Name;
-        }
 
         private const int LinePadding = 5;
         public void Compose()
@@ -156,15 +133,15 @@ namespace TurnCtrl
         public TurnLine[] getTurnLines()
         {
             List<TurnLine> tmp = Controls.OfType<TurnLine>().ToList();
-            return tmp.OrderBy(si => si.Properties.Id).ToArray();
+            return tmp.OrderBy(si => si.Properties.Order).ToArray();
         }
 
-        public int MaxLineOrderId
+        public byte MaxLineOrderId
         {
             get
             {
                 TurnLine[] lines = getTurnLines();
-                return lines.Length == 0 ? 0 : lines[lines.Length - 1].Properties.Id;
+                return (byte)(lines.Length == 0 ? 0 : lines[lines.Length - 1].Properties.Order);
             }
         }
 
@@ -177,16 +154,16 @@ namespace TurnCtrl
         public void SwapGroupsOrder(TurnLine gr, int TargetOrderId)
         {
             TurnLine target = getLineByOrderId(TargetOrderId);
-            int tmp = target.Properties.Id;
-            target.Properties.Id = gr.Properties.Id;
-            gr.Properties.Id = tmp;
+            byte tmp = target.Properties.Order;
+            target.Properties.Order = gr.Properties.Order;
+            gr.Properties.Order = tmp;
             Compose();
         }
 
         public TurnLine getLineByOrderId(int OrderId)
         {
             foreach (TurnLine ln in getTurnLines())
-                if (ln.Properties.Id == OrderId)
+                if (ln.Properties.Order == OrderId)
                     return ln;
             return null;
         }

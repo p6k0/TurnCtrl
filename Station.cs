@@ -47,7 +47,7 @@ namespace TurnCtrl
 
         public LineGroup LineGroupCreate()
         {
-            LineGroup gr = new LineGroup(new LineGroupProperties() { Id = MaxGroupOrderId + 1 }, toolTip)
+            LineGroup gr = new LineGroup(new LineGroupProperties() { Order = (byte)(MaxGroupOrderId + 1) }, toolTip)
             {
                 Width = ClientRectangle.Width,
                 Left = 0
@@ -66,19 +66,19 @@ namespace TurnCtrl
             {
                 gr.Top = TopOffset;
                 TopOffset += gr.Height;
-                gr.BackColor = (gr.Properties.Id & 1) == 0 ? BackColor = Color.FromArgb(0xfa, 0xfa, 0xfa) : Color.FromArgb(0xf5, 0xf5, 0xf5);
+                gr.BackColor = (gr.Properties.Order & 1) == 0 ? BackColor = Color.FromArgb(0xfa, 0xfa, 0xfa) : Color.FromArgb(0xf5, 0xf5, 0xf5);
             }
         }
 
         public LineGroup[] getGroups()
         {
             List<LineGroup> tmp = Controls.OfType<LineGroup>().ToList();
-            return tmp.OrderBy(si => si.Properties.Id).ToArray();
+            return tmp.OrderBy(si => si.Properties.Order).ToArray();
         }
         public LineGroup getGroupByOrderId(int Id)
         {
             foreach (LineGroup gr in getGroups())
-                if (gr.Properties.Id == Id)
+                if (gr.Properties.Order == Id)
                     return gr;
             return null;
         }
@@ -89,16 +89,16 @@ namespace TurnCtrl
             get
             {
                 LineGroup[] lines = getGroups();
-                return lines.Length == 0 ? 0 : lines[lines.Length - 1].Properties.Id;
+                return lines.Length == 0 ? 0 : lines[lines.Length - 1].Properties.Order;
             }
         }
 
         public void SwapGroupsOrder(LineGroup gr, int TargetOrderId)
         {
             LineGroup target = getGroupByOrderId(TargetOrderId);
-            int tmp = target.Properties.Id;
-            target.Properties.Id = gr.Properties.Id;
-            gr.Properties.Id = tmp;
+            byte tmp = target.Properties.Order;
+            target.Properties.Order = gr.Properties.Order;
+            gr.Properties.Order = tmp;
             Compose();
         }
 

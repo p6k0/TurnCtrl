@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -9,7 +8,7 @@ namespace TurnCtrl
     public partial class TurnLine : UserControl
     {
         #region Событие действия Линейки
-        public delegate void TurnLineHeaderClickHandler(object sender,MouseEventArgs e);
+        public delegate void TurnLineHeaderClickHandler(object sender, MouseEventArgs e);
         public event TurnLineHeaderClickHandler HeaderClick;
         #endregion
 
@@ -20,113 +19,27 @@ namespace TurnCtrl
         {
             this.ttip = ttip;
             this.Properties = Properties;
+            Properties.ModelChanged += Properties_ModelChanged;
+            Properties.NameChanged += Properties_NameChanged;
             InitializeComponent();
-            /*MenuItem[] mi;
-            if (Editable)
-            {
-                mi = new MenuItem[] {
-                    new MenuItem("Настройка", editLine_click),
-                    new MenuItem("Добавить проход",addPass_click),
-                    new MenuItem("-"),
-                    new MenuItem("Вверх по списку",moveTop_click),
-                    new MenuItem("Вниз по списку",moveBottom_click),
-                    new MenuItem("-"),
-                    new MenuItem("Удалить линейку",deleteLine_click),
-                };
-            }
-            else
-            {
-                mi = new MenuItem[] {
-                    new MenuItem("Настройка", editLine_click),
-                    new MenuItem("Добавить проход",addPass_click),
-                    new MenuItem("-"),
-                    new MenuItem("Удалить линейку",deleteLine_click),
-                };
-            }
-            TextLbl.ContextMenu = new ContextMenu(mi);*/
-            Upd();
+            TextLbl.Text = Properties.Name;
+            ChangeEmptyHeads();
         }
 
-        private void moveBottom_click(object sender, EventArgs e)
-        {
-            if (Properties.Id == ((LineGroup)Parent).MaxLineOrderId)
-                return;
-            ((LineGroup)Parent).SwapGroupsOrder(this, Properties.Id + 1);
-        }
-
-        private void moveTop_click(object sender, EventArgs e)
-        {
-            if (Properties.Id == 1)
-                return;
-            ((LineGroup)Parent).SwapGroupsOrder(this, Properties.Id - 1);
-        }
-
-        public Turnstile addTurnstile(PassProperies prop)
-        {
-
-            Turnstile turn = new Turnstile(prop, Properties.TurnstileModel, ttip)
-            {
-                Top = 25
-            };
-            Controls.Add(turn);
-            return turn;
-        }
-
-        private void deleteLine_click(object sender, System.EventArgs e)
-        {
-            if (MessageBox.Show("Вы действительно хотите удалить линейку?", "Подтверждение действия", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
-            {
-                LineGroup pr = (LineGroup)Parent;
-                pr.Controls.Remove(this);
-                pr.Compose();
-                Dispose();
-            }
-        }
-        private void addPass_click(object sender, System.EventArgs e)
-        {
-            Turnstile[] turns = getTurnstiles();
-            int MaxOrder = turns.Length == 0 ? 0 : turns[turns.Length - 1].Properties.Order;
-
-            Controls.Add(
-                new Turnstile(
-                    new PassProperies()
-                    {
-                        Order = MaxOrder + 1,
-                        LeftRack = MaxOrder == 0 ? new RackProperties() : turns[turns.Length - 1].Properties.RightRack
-                    }, Properties.TurnstileModel, ttip)
-                { Left = 5 + 60 * (MaxOrder), Top = 25 });
-            Width = 30 + 60 * (MaxOrder + 1);
-            ((LineGroup)Parent).Compose();
-        }
-       /* private void editLine_click(object sender, System.EventArgs e)
-        {
-            using (TurnLineEditForm f = new TurnLineEditForm(Properties))
-            {
-                switch (f.ShowDialog(this))
-                {
-                    case DialogResult.OK:
-                        Properties = f.Properties;
-                        Upd();
-                        foreach (Turnstile turn in getTurnstiles())
-                            turn.model = Properties.TurnstileModel;
-                        break;
-                    default:
-                        return;
-                }
-            };
-        }*/
-
-        public Turnstile[] getTurnstiles()
-        {
-            List<Turnstile> tmp = Controls.OfType<Turnstile>().ToList();
-            return tmp.OrderBy(si => si.Properties.Order).ToArray();
-        }
-
-
-        private void Upd()
+        private void Properties_NameChanged(object Sender)
         {
             TextLbl.Text = Properties.Name;
+        }
 
+        private void Properties_ModelChanged(object Sender)
+        {
+            ChangeEmptyHeads();
+            foreach (Turnstile turn in getTurnstiles())
+                turn.model = Properties.TurnstileModel;
+        }
+
+        private void ChangeEmptyHeads()
+        {
             switch (Properties.TurnstileModel)
             {
                 case Turnstile.Model.ut2000:
@@ -145,6 +58,63 @@ namespace TurnCtrl
                     break;
             }
         }
+
+        public void MoveBottom()
+        {
+            if (Properties.Order == ((LineGroup)Parent).MaxLineOrderId)
+                return;
+            ((LineGroup)Parent).SwapGroupsOrder(this, Properties.Order + 1);
+        }
+
+        public void MoveTop()
+        {
+            if (Properties.Order == 1)
+                return;
+            ((LineGroup)Parent).SwapGroupsOrder(this, Properties.Order - 1);
+        }
+
+        public Turnstile addTurnstile(PassProperies prop)
+        {
+
+            Turnstile turn = new Turnstile(prop, Properties.TurnstileModel, ttip)
+            {
+                Top = 25
+            };
+            Controls.Add(turn);
+            return turn;
+        }
+
+        public void CreatePass()
+        {
+            Turnstile[] turns = getTurnstiles();
+            byte MaxOrder = (byte)(turns.Length == 0 ? 0 : turns[turns.Length - 1].Properties.Order);
+            Turnstile t = new Turnstile(
+                    new PassProperies()
+                    {
+                        Order = (byte)(MaxOrder + 1),
+                        LeftRack = MaxOrder == 0 ? new RackProperties() : turns[turns.Length - 1].Properties.RightRack
+                    },
+                    Properties.TurnstileModel,
+                    ttip
+            )
+            {
+                Left = 5 + 60 * (MaxOrder),
+                Top = 25
+            };
+            t.PassNumClick += ((Station)((LineGroup)Parent).Parent).PassNumClick;
+            Controls.Add(t);
+
+            Width = 30 + 60 * (MaxOrder + 1);
+            ((LineGroup)Parent).Compose();
+        }
+
+        public Turnstile[] getTurnstiles()
+        {
+            List<Turnstile> tmp = Controls.OfType<Turnstile>().ToList();
+            return tmp.OrderBy(si => si.Properties.Order).ToArray();
+        }
+
+
 
         public void Compose()
         {
@@ -215,6 +185,13 @@ namespace TurnCtrl
         private void TextLbl_MouseClick(object sender, MouseEventArgs e)
         {
             HeaderClick(this, e);
+        }
+
+        private void TurnLine_ControlAdded(object sender, ControlEventArgs e)
+        {
+            if (!(e.Control is Turnstile))
+                return;
+            ((Turnstile)e.Control).model = Properties.TurnstileModel;
         }
     }
 }

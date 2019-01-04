@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TurnCtrl
 {
@@ -13,55 +8,87 @@ namespace TurnCtrl
         public string Name;
     }
 
-    public class LineGroupProperties
+    public class Props
     {
+        public delegate void PropertyChanged(object sender);
         /// <summary>
-        /// Порядковый номер в группе
+        /// Порядковый номер элемента
         /// </summary>
-        public int Id = 1;
+        public byte Order = 1;
+    }
+
+    public class LineGroupProperties : Props
+    {
+        public event PropertyChanged NameChanged;
         /// <summary>
         /// Имя группы
         /// </summary>
-        public string Name = "Группа линеек";
+        public string Name
+        {
+            get => _Name;
+            set
+            {
+                _Name = value;
+                NameChanged?.Invoke(this);
+            }
+        }
+
+        private string _Name = "Группа линеек";
+
     }
 
-    public class TurnLineProperties
+    public class TurnLineProperties : Props
     {
-        /// <summary>
-        /// Порядковый номер в группе
-        /// </summary>
-        public int Id = 1;
+
+        public event PropertyChanged NameChanged;
+        public event PropertyChanged ModelChanged;
         /// <summary>
         /// Название линейки
         /// </summary>
-        public string Name = "Имя линейки";
+        public string Name
+        {
+            get => _Name;
+            set
+            {
+                _Name = value;
+                NameChanged?.Invoke(this);
+            }
+        }
+        private string _Name = "Имя линейки";
         /// <summary>
         /// Модель турникетов в линейке
         /// </summary>
-        public Turnstile.Model TurnstileModel = Turnstile.Model.ut2000;
+        public Turnstile.Model TurnstileModel
+        {
+            get => _TurnstileModel;
+            set
+            {
+                _TurnstileModel = value;
+                ModelChanged?.Invoke(this);
+            }
+        }
+
+        private Turnstile.Model _TurnstileModel = Turnstile.Model.ut2000;
     }
     public class WireProperties
     {
         /// <summary>
         /// Адрес на линии
         /// </summary>
-       public byte Address = 1;
+        public byte Address = 1;
         /// <summary>
         /// COM - порт общения
         /// </summary>
-       public string Port = "Com1";
+        public string Port = "Com1";
     }
 
-    public class PassProperies
+    public class PassProperies : Props
     {
-        /// <summary>
-        /// Порядковый номер в линейке
-        /// </summary>
-        public int Order = 1;
+        public event PropertyChanged Changed;
         /// <summary>
         /// Номер прохода на станции
         /// </summary>
-        public int Number = 1;
+        public byte Number = 1;
         /// <summary>
         /// Возможность прохода на платформу
         /// </summary>
@@ -81,7 +108,7 @@ namespace TurnCtrl
         /// <summary>
         /// Свойства сети RS-485
         /// </summary>
-       public WireProperties Wire = new WireProperties();
+        public WireProperties Wire = new WireProperties();
 
         /// <summary>
         /// Конфигурация стойки
@@ -90,7 +117,7 @@ namespace TurnCtrl
             LeftRack = new RackProperties(),
             RightRack = new RackProperties();
     }
-   public class RackProperties
+    public class RackProperties
     {
         /// <summary>
         /// Инвентарный номер стойки
@@ -100,7 +127,7 @@ namespace TurnCtrl
         /// Серийный номер стойки
         /// </summary>
         public ulong SerialNum = 0;
-       
+
 
         //Возможно придется добавить владельца
     }

@@ -79,6 +79,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TurnLine";
             this.Size = new System.Drawing.Size(100, 180);
+            this.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.TurnLine_ControlAdded);
             this.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.TurnLine_ControlRemoved);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.TurnLine_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.lastEmptyHead)).EndInit();

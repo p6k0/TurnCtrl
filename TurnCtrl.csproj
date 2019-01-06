@@ -50,6 +50,7 @@
     <Compile Include="LineGroup.Designer.cs">
       <DependentUpon>LineGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="PassState.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

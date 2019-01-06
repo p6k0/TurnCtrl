@@ -170,7 +170,7 @@ namespace TurnCtrl
 
         private void groupName_MouseClick(object sender, MouseEventArgs e)
         {
-            HeaderClick(this, e);
+            HeaderClick?.Invoke(this, e);
         }
     }
 }

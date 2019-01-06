@@ -28,6 +28,11 @@ namespace TurnCtrl
         {
             this.map = map;
         }
+        public AsokupeConfig(string Path)
+        {
+            map = new XmlDocument();
+            map.Load(Path);
+        }
 
         public string Validate()
         {
@@ -144,7 +149,7 @@ namespace TurnCtrl
         /// </summary>
         /// <param name="station">Элемент управления Station, в котором будут расположена визуализация остановочного пункта</param>
         /// <param name="editable">Признак, определяющий, какие функции будут доступны на элементах управления</param>
-        public void DrawMap(Station station, bool editable)
+        public void DrawMap(Station station)
         {
             station.Properties.Name = map.DocumentElement.GetAttribute("Name");
             station.Properties.ExpressCode = Convert.ToInt32(map.DocumentElement.GetAttribute("E"));
@@ -160,7 +165,7 @@ namespace TurnCtrl
                     for (int i = 1; i < lnEl.SelectNodes("Turn").Count; i++)
                     {
                         XmlElement tEl = (XmlElement)lnEl.SelectSingleNode("Turn[@Order=\"" + i + "\"]");
-                        PassProperies p = CreatePassProperty(tEl, prevRack, editable);
+                        PassProperies p = CreatePassProperty(tEl, prevRack);
                         Turnstile t = ln.addTurnstile(p);
                         t.PassNumClick += station.PassNumClick;
                         prevRack = p.RightRack;
@@ -187,7 +192,7 @@ namespace TurnCtrl
         {
             el.SetAttribute(Name, Value ? "1" : "0");
         }
-        public PassProperies CreatePassProperty(XmlElement el, RackProperties leftRack, bool WithWire = false)
+        public PassProperies CreatePassProperty(XmlElement el, RackProperties leftRack)
         {
             return new PassProperies()
             {
@@ -199,7 +204,7 @@ namespace TurnCtrl
                 OutEnable = Attr2Bool(el, "OutEnable"),
                 LeftRack = leftRack,
                 RightRack = CreateRackProperty(el),
-                Wire = WithWire ? CreateWireProperties(el) : null
+                Wire = CreateWireProperties(el)
 
             };
         }

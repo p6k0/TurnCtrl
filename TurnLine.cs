@@ -184,7 +184,7 @@ namespace TurnCtrl
 
         private void TextLbl_MouseClick(object sender, MouseEventArgs e)
         {
-            HeaderClick(this, e);
+            HeaderClick?.Invoke(this, e);
         }
 
         private void TurnLine_ControlAdded(object sender, ControlEventArgs e)

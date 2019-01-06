@@ -8,9 +8,10 @@
     <OutputType>Library</OutputType>
     <RootNamespace>TurnCtrl</RootNamespace>
     <AssemblyName>TurnCtrl</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,7 +38,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -86,6 +86,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Station.resx">
@@ -100,64 +101,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\TurnstileInfo.datasource" />
-    <None Include="Sprites\2000\IN_0.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\2000\IN_1.png" />
+    <None Include="Resources\Express.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\2000\OUT_0.png" />
+    <None Include="Resources\Laser.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\2000\OUT_1.png" />
+    <None Include="Resources\ARROW_IN.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\Laser.png" />
+    <None Include="Resources\ARROW_OUT.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\Baggage.png" />
+    <None Include="Resources\Baggage.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\Express.png" />
+    <None Include="Resources\ut2000_9_head_in_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\SOS_0.png" />
+    <None Include="Resources\ut2000_9_head_out_empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\SOS_1.png" />
+    <None Include="Resources\ut2000_9_head_out_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\COG.png" />
+    <None Include="Resources\ut2000_9_head_in_empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\ARROW_IN.png" />
+    <None Include="Resources\ut2000_head_out_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\ARROW_OUT.png" />
+    <None Include="Resources\ut2000_head_in_empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\2000_9\IN_1.png" />
+    <None Include="Resources\ut2000_head_in_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\2000_9\OUT_0.png" />
+    <None Include="Resources\ut2000_head_out_empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\2000_9\OUT_1.png" />
+    <None Include="Resources\ut2012_head_in_empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\2000_9\IN_0.png" />
+    <None Include="Resources\ut2012_head_in_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\2012\OUT_0.png" />
+    <None Include="Resources\ut2012_head_out_empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sprites\2012\OUT_1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Sprites\2012\IN_0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Sprites\2012\IN_1.png" />
+    <None Include="Resources\ut2012_head_out_normal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

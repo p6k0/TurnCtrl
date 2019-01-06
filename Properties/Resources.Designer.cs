@@ -93,16 +93,6 @@ namespace TurnCtrl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap COG {
-            get {
-                object obj = ResourceManager.GetObject("COG", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Express {
             get {
                 object obj = ResourceManager.GetObject("Express", resourceCulture);
@@ -116,26 +106,6 @@ namespace TurnCtrl.Properties {
         internal static System.Drawing.Bitmap Laser {
             get {
                 object obj = ResourceManager.GetObject("Laser", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap SOS_0 {
-            get {
-                object obj = ResourceManager.GetObject("SOS_0", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap SOS_1 {
-            get {
-                object obj = ResourceManager.GetObject("SOS_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

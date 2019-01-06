@@ -40,10 +40,9 @@
             // Station
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Station";
-            this.Size = new System.Drawing.Size(513, 263);
+            this.Size = new System.Drawing.Size(517, 267);
             this.ResumeLayout(false);
 
         }

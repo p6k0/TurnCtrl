@@ -16,6 +16,7 @@ namespace TurnCtrl
         public StationProperties Properties;
         public Station()
         {
+            Properties = new StationProperties();
             InitializeComponent();
             HorizontalScroll.Maximum = 0;
             AutoScroll = false;
@@ -52,6 +53,7 @@ namespace TurnCtrl
                 Width = ClientRectangle.Width,
                 Left = 0
             };
+            gr.HeaderClick += GroupHeaderClick;
             Controls.Add(gr);
             Compose();
             return gr;
@@ -66,7 +68,7 @@ namespace TurnCtrl
             {
                 gr.Top = TopOffset;
                 TopOffset += gr.Height;
-                gr.BackColor = (gr.Properties.Order & 1) == 0 ? BackColor = Color.FromArgb(0xfa, 0xfa, 0xfa) : Color.FromArgb(0xf5, 0xf5, 0xf5);
+                gr.BackColor = (gr.Properties.Order & 1) == 0 ? BackColor = Color.FromArgb(0xfa, 0xfa, 0xfa) : Color.FromArgb(0xee, 0xee, 0xee);
             }
         }
 

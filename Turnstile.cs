@@ -59,7 +59,7 @@ namespace TurnCtrl
 
         private void passNum_MouseClick(object sender, MouseEventArgs e)
         {
-            PassNumClick(this, e);
+            PassNumClick?.Invoke(this, e);
         }
 
         private void UpdateSkin()

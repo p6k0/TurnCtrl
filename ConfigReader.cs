@@ -107,8 +107,8 @@ namespace TurnCtrl
                     Turnstile[] turns = ln.getTurnstiles();
                     XmlElement tEl = map.CreateElement("Turn");
                     tEl.SetAttribute("Order", "0");
-                    tEl.SetAttribute("SN", turns[1].Properties.LeftRack.SerialNum.ToString());
-                    tEl.SetAttribute("IN", turns[1].Properties.LeftRack.InventoryNum);
+                    tEl.SetAttribute("SN", turns[1].Properties.OutRack.SerialNum.ToString());
+                    tEl.SetAttribute("IN", turns[1].Properties.OutRack.InventoryNum);
                     lnel.AppendChild(tEl);
                     foreach (Turnstile t in turns)
                     {
@@ -117,8 +117,8 @@ namespace TurnCtrl
                         tEl.SetAttribute("PassNum", t.Properties.Number.ToString());
 
                         tEl.SetAttribute("Order", t.Properties.Order.ToString());
-                        tEl.SetAttribute("SN", t.Properties.RightRack.SerialNum.ToString());
-                        tEl.SetAttribute("IN", t.Properties.RightRack.InventoryNum);
+                        tEl.SetAttribute("SN", t.Properties.InRack.SerialNum.ToString());
+                        tEl.SetAttribute("IN", t.Properties.InRack.InventoryNum);
 
 
                         Bool2Attr(tEl, "Baggage", t.Properties.Baggage);
@@ -165,11 +165,11 @@ namespace TurnCtrl
                     for (int i = 1; i < lnEl.SelectNodes("Turn").Count; i++)
                     {
                         XmlElement tEl = (XmlElement)lnEl.SelectSingleNode("Turn[@Order=\"" + i + "\"]");
-                        PassProperies p = CreatePassProperty(tEl, prevRack);
+                        PassProperties p = CreatePassProperty(tEl, prevRack);
                         Turnstile t = ln.addTurnstile(p);
                         t.PassNumClick += station.PassNumClick;
-                        prevRack = p.RightRack;
-                        t.Compose();
+                        prevRack = p.InRack;
+                       // t.DrawIcons();
                     }
                     ln.Compose();
                 }
@@ -192,9 +192,9 @@ namespace TurnCtrl
         {
             el.SetAttribute(Name, Value ? "1" : "0");
         }
-        public PassProperies CreatePassProperty(XmlElement el, RackProperties leftRack)
+        public PassProperties CreatePassProperty(XmlElement el, RackProperties leftRack)
         {
-            return new PassProperies()
+            return new PassProperties()
             {
                 Number = Convert.ToByte(el.GetAttribute("PassNum")),
                 Order = Convert.ToByte(el.GetAttribute("Order")),
@@ -202,8 +202,8 @@ namespace TurnCtrl
                 Express = Attr2Bool(el, "Express"),
                 InEnable = Attr2Bool(el, "InEnable"),
                 OutEnable = Attr2Bool(el, "OutEnable"),
-                LeftRack = leftRack,
-                RightRack = CreateRackProperty(el),
+                OutRack = leftRack,
+                InRack = CreateRackProperty(el),
                 Wire = CreateWireProperties(el)
 
             };

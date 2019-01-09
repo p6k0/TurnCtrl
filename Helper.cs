@@ -34,35 +34,7 @@ namespace TurnCtrl
                 return PassRegion;
             }
         }
-
-        public static PictureBox CreateBagageIcon()
-        {
-            PictureBox icon = CreateTurnIcon();
-            icon.Image = Properties.Resources.Baggage;
-            icon.Tag = "Baggage";
-            icon.Top = 64;
-            return icon;
-        }
-        public static PictureBox CreateExpressIcon()
-        {
-            PictureBox icon = CreateTurnIcon();
-            icon.Image = Properties.Resources.Express;
-            icon.Tag = "Express";
-            icon.Top = 44;
-            return icon;
-        }
-
-
-        private static PictureBox CreateTurnIcon()
-        {
-            PictureBox icon = new PictureBox()
-            {
-                Width = 20,
-                Height = 20,
-                Left = 30
-            };
-            return icon;
-        }
+                
     }
 
 }

@@ -7,11 +7,14 @@ namespace TurnCtrl
         /// <summary>
         /// Состояние проходов на вход или выход;
         /// </summary>
-        readonly Travel InTravel, OutTravel;
+        readonly Travel
+            InTravel,
+            OutTravel;
+
 
     }
 
-    class PassStateParam
+    abstract class PassStateParam
     {
         /// <summary>
         /// Время последнего изменения
@@ -25,7 +28,7 @@ namespace TurnCtrl
         /// Число проходов
         /// </summary>
         readonly int Count;
-
+        private
         /// <summary>
         /// Открыт ли проход сейчас
         /// </summary>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -26,12 +27,12 @@ namespace TurnCtrl
             ChangeEmptyHeads();
         }
 
-        private void Properties_NameChanged(object Sender)
+        private void Properties_NameChanged(object Sender,EventArgs e)
         {
             TextLbl.Text = Properties.Name;
         }
 
-        private void Properties_ModelChanged(object Sender)
+        private void Properties_ModelChanged(object Sender, EventArgs e)
         {
             ChangeEmptyHeads();
             foreach (Turnstile turn in getTurnstiles())
@@ -73,7 +74,7 @@ namespace TurnCtrl
             ((LineGroup)Parent).SwapGroupsOrder(this, Properties.Order - 1);
         }
 
-        public Turnstile addTurnstile(PassProperies prop)
+        public Turnstile addTurnstile(PassProperties prop)
         {
 
             Turnstile turn = new Turnstile(prop, Properties.TurnstileModel, ttip)
@@ -89,10 +90,10 @@ namespace TurnCtrl
             Turnstile[] turns = getTurnstiles();
             byte MaxOrder = (byte)(turns.Length == 0 ? 0 : turns[turns.Length - 1].Properties.Order);
             Turnstile t = new Turnstile(
-                    new PassProperies()
+                    new PassProperties()
                     {
                         Order = (byte)(MaxOrder + 1),
-                        LeftRack = MaxOrder == 0 ? new RackProperties() : turns[turns.Length - 1].Properties.RightRack
+                        OutRack = MaxOrder == 0 ? new RackProperties() : turns[turns.Length - 1].Properties.InRack
                     },
                     Properties.TurnstileModel,
                     ttip
@@ -164,9 +165,9 @@ namespace TurnCtrl
             if (t.Length == 0) return;
             RackProperties r;
             if (IsFirst)
-                r = t[0].Properties.LeftRack;
+                r = t[0].Properties.OutRack;
             else
-                r = t[t.Length - 1].Properties.RightRack;
+                r = t[t.Length - 1].Properties.InRack;
             t = null;
             ttip.ToolTipTitle = "Стойка " + Turnstile.ModelName[(int)Properties.TurnstileModel];
             ttip.Show("Инвентарный №: " + r.InventoryNum + "\r\nСерийный №:" + r.SerialNum, IsFirst ? firstEmptyHead : lastEmptyHead);

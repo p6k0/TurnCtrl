@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -28,7 +29,7 @@ namespace TurnCtrl
             groupName.Text = Properties.Name;
         }
 
-        private void Properties_NameChanged(object Sender)
+        private void Properties_NameChanged(object Sender,EventArgs e)
         {
             groupName.Text = Properties.Name;
         }

@@ -184,6 +184,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Turnstile";
             this.Size = new System.Drawing.Size(80, 150);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Turnstile_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Laser_I_1)).EndInit();

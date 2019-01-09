@@ -8,9 +8,9 @@ namespace TurnCtrl
         public string Name;
     }
 
-    public class Props
+    public abstract class Props
     {
-        public delegate void PropertyChanged(object sender);
+        public delegate void PropertyChanged(object sender, EventArgs e);
         /// <summary>
         /// Порядковый номер элемента
         /// </summary>
@@ -29,7 +29,7 @@ namespace TurnCtrl
             set
             {
                 _Name = value;
-                NameChanged?.Invoke(this);
+                NameChanged?.Invoke(this, null);
             }
         }
 
@@ -51,7 +51,7 @@ namespace TurnCtrl
             set
             {
                 _Name = value;
-                NameChanged?.Invoke(this);
+                NameChanged?.Invoke(this, null);
             }
         }
         private string _Name = "Имя линейки";
@@ -64,7 +64,7 @@ namespace TurnCtrl
             set
             {
                 _TurnstileModel = value;
-                ModelChanged?.Invoke(this);
+                ModelChanged?.Invoke(this, null);
             }
         }
 
@@ -82,21 +82,51 @@ namespace TurnCtrl
         public string Port = "Com1";
     }
 
-    public class PassProperies : Props
+    public class PassProperties : Props
     {
-        public event PropertyChanged Changed;
+        public event PropertyChanged NumberChanged;
+        public event PropertyChanged HeadCfgChanged;
+
         /// <summary>
         /// Номер прохода на станции
         /// </summary>
-        public byte Number = 1;
+        public byte Number
+        {
+            get => _Number;
+            set
+            {
+                _Number = value;
+                NumberChanged?.Invoke(this, null);
+            }
+        }
+        public byte _Number = 1;
         /// <summary>
         /// Возможность прохода на платформу
         /// </summary>
-        public bool InEnable = true;
+        public bool InEnable
+        {
+            get => _InEnable;
+            set
+            {
+                _InEnable = value;
+                HeadCfgChanged?.Invoke(this, new HeadChangedEventArgs(true));
+            }
+        }
+        private bool _InEnable = true;
+
         /// <summary>
         /// Возможность прохода с платформы
         /// </summary>
-        public bool OutEnable = true;
+        public bool OutEnable
+        {
+            get => _OutEnable;
+            set
+            {
+                _OutEnable = value;
+                HeadCfgChanged?.Invoke(this, new HeadChangedEventArgs(false));
+            }
+        }
+        public bool _OutEnable = true;
         /// <summary>
         /// Проход к электропоездам ЭКСПРЕСС
         /// </summary>
@@ -114,9 +144,19 @@ namespace TurnCtrl
         /// Конфигурация стойки
         /// </summary>
         public RackProperties
-            LeftRack = new RackProperties(),
-            RightRack = new RackProperties();
+            OutRack = new RackProperties(),
+            InRack = new RackProperties();
     }
+
+    class HeadChangedEventArgs : EventArgs
+    {
+        public bool In;
+        public HeadChangedEventArgs(bool In)
+        {
+            this.In = In;
+        }
+    }
+
     public class RackProperties
     {
         /// <summary>

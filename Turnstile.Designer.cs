@@ -32,7 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.passOut = new System.Windows.Forms.PictureBox();
-            this.passNum = new System.Windows.Forms.Button();
+            this.passNum = new System.Windows.Forms.Label();
             this.Laser_I_1 = new System.Windows.Forms.PictureBox();
             this.Laser_I_0 = new System.Windows.Forms.PictureBox();
             this.Laser_O_1 = new System.Windows.Forms.PictureBox();
@@ -90,20 +90,17 @@
             // passNum
             // 
             this.passNum.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.passNum.FlatAppearance.BorderSize = 0;
             this.passNum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.passNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.passNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
             this.passNum.Location = new System.Drawing.Point(20, 130);
             this.passNum.Margin = new System.Windows.Forms.Padding(0);
             this.passNum.Name = "passNum";
             this.passNum.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.passNum.Size = new System.Drawing.Size(40, 20);
             this.passNum.TabIndex = 9;
-            this.passNum.TabStop = false;
             this.passNum.Text = "#";
-            this.passNum.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.passNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.passNum.UseMnemonic = false;
-            this.passNum.UseVisualStyleBackColor = false;
             this.passNum.MouseClick += new System.Windows.Forms.MouseEventHandler(this.passNum_MouseClick);
             // 
             // Laser_I_1
@@ -209,6 +206,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox passOut;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button passNum;
+        private System.Windows.Forms.Label passNum;
     }
 }

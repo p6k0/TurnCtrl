@@ -171,7 +171,7 @@ namespace TurnCtrl
                         prevRack = p.InRack;
                        // t.DrawIcons();
                     }
-                    ln.Compose();
+                    //ln.Compose();
                 }
                 lg.Compose();
             }

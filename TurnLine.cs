@@ -27,7 +27,7 @@ namespace TurnCtrl
             ChangeEmptyHeads();
         }
 
-        private void Properties_NameChanged(object Sender,EventArgs e)
+        private void Properties_NameChanged(object Sender, EventArgs e)
         {
             TextLbl.Text = Properties.Name;
         }
@@ -117,36 +117,8 @@ namespace TurnCtrl
 
 
 
-        public void Compose()
-        {
-            Turnstile[] turns = getTurnstiles();
-            for (int i = 0; i < turns.Length; i++)
-            {
-
-                turns[i].Left = 5 + 60 * i;
-            }
-            Width = 30 + turns.Length * 60;
-        }
 
 
-        private void TurnLine_ControlRemoved(object sender, ControlEventArgs e)
-        {
-            Turnstile[] tt = getTurnstiles();
-            if (tt.Length == 0) //Если не осталось проходов возвращаем минимальную ширину
-            {
-                Width = 90;
-                return;
-            }
-            for (int i = 0; i < tt.Length; i++)
-            {
-                if (tt[i].Properties.Order > ((Turnstile)e.Control).Properties.Order)
-                    tt[i].Properties.Order -= 1;
-                tt[i].Left = 5 + (tt[i].Properties.Order - 1) * 60;
-
-            }
-            Width = 30 + 60 * (tt[tt.Length - 1].Properties.Order);
-            ((LineGroup)Parent).Compose();
-        }
 
         public Turnstile getPassByOrder(int OrderId)
         {
@@ -188,11 +160,37 @@ namespace TurnCtrl
             HeaderClick?.Invoke(this, e);
         }
 
+
+        private void TurnLine_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            Turnstile[] tt = getTurnstiles();
+            if (tt.Length == 0) //Если не осталось проходов возвращаем минимальную ширину
+            {
+                Width = 90;
+                return;
+            }
+            for (int i = 0; i < tt.Length; i++)
+                if (tt[i].Properties.Order > ((Turnstile)e.Control).Properties.Order)
+                    tt[i].Properties.Order -= 1;
+            Compose();
+            ((LineGroup)Parent).Compose();
+        }
+
         private void TurnLine_ControlAdded(object sender, ControlEventArgs e)
         {
-            if (!(e.Control is Turnstile))
-                return;
+            if (!(e.Control is Turnstile)) return;
             ((Turnstile)e.Control).model = Properties.TurnstileModel;
+
+            Compose();
         }
+
+        private void Compose()
+        {
+            Turnstile[] turns = getTurnstiles();
+            for (int i = 0; i < turns.Length; i++)
+                turns[i].Left = 5 + 60 * i;
+            Width = 30 + turns.Length * 60;
+        }
+
     }
 }

@@ -73,22 +73,6 @@ namespace TurnCtrl
         }
 
 
-        /* private void editGroup_click(object sender, EventArgs e)
-         {
-             using (LineGroupEditForm f = new LineGroupEditForm(Properties))
-             {
-                 switch (f.ShowDialog(this))
-                 {
-                     case DialogResult.OK:
-                         Properties = f.Properties;
-                         Upd();
-                         break;
-                     default:
-                         return;
-                 }
-             }
-         }*/
-
 
         private const int LinePadding = 5;
         public void Compose()

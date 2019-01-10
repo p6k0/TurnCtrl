@@ -44,10 +44,10 @@
   <ItemGroup>
     <Compile Include="ConfigReader.cs" />
     <Compile Include="Helper.cs" />
-    <Compile Include="LineGroup.cs">
+    <Compile Include="Controls\LineGroup.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LineGroup.Designer.cs">
+    <Compile Include="Controls\LineGroup.Designer.cs">
       <DependentUpon>LineGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="PassState.cs" />
@@ -56,33 +56,33 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Station.cs">
+    <Compile Include="Controls\Station.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Station.Designer.cs">
+    <Compile Include="Controls\Station.Designer.cs">
       <DependentUpon>Station.cs</DependentUpon>
     </Compile>
-    <Compile Include="TurnHelp.cs">
+    <Compile Include="Controls\TurnHelp.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TurnLine.cs">
+    <Compile Include="Controls\TurnLine.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TurnLine.Designer.cs">
+    <Compile Include="Controls\TurnLine.Designer.cs">
       <DependentUpon>TurnLine.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PassConfig.cs" />
-    <Compile Include="Turnstile.cs">
+    <Compile Include="Controls\Turnstile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Turnstile.Designer.cs">
+    <Compile Include="Controls\Turnstile.Designer.cs">
       <DependentUpon>Turnstile.cs</DependentUpon>
     </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="LineGroup.resx">
+    <EmbeddedResource Include="Controls\LineGroup.resx">
       <DependentUpon>LineGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -90,13 +90,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station.resx">
+    <EmbeddedResource Include="Controls\Station.resx">
       <DependentUpon>Station.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TurnLine.resx">
+    <EmbeddedResource Include="Controls\TurnLine.resx">
       <DependentUpon>TurnLine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Turnstile.resx">
+    <EmbeddedResource Include="Controls\Turnstile.resx">
       <DependentUpon>Turnstile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -119,40 +119,42 @@
     <None Include="Resources\Baggage.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ut2000_9_head_in_normal.png" />
+    <None Include="Resources\ut2000_9\ut2000_9_in_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ut2000_9_head_out_empty.png" />
+    <None Include="Resources\ut2000_9\ut2000_9_out_empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ut2000_9_head_out_normal.png" />
+    <None Include="Resources\ut2000_9\ut2000_9_out_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ut2000_9_head_in_empty.png" />
+    <None Include="Resources\ut2000_9\ut2000_9_in_empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ut2000_head_out_normal.png" />
+    <None Include="Resources\ut2000\ut2000_out_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ut2000_head_in_empty.png" />
+    <None Include="Resources\ut2000\ut2000_in_empty.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ut2000_head_in_normal.png" />
+    <None Include="Resources\ut2000\ut2000_in_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ut2000_head_out_empty.png" />
+    <None Include="Resources\ut2000\ut2000_out_empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ut2012_head_in_empty.png" />
+    <None Include="Resources\ut2012\ut2012_in_empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ut2012_head_in_normal.png" />
+    <None Include="Resources\ut2012\ut2012_in_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ut2012_head_out_empty.png" />
+    <None Include="Resources\ut2012\ut2012_out_empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ut2012_head_out_normal.png" />
+    <None Include="Resources\ut2012\ut2012_out_normal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

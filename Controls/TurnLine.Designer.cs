@@ -76,6 +76,7 @@
             this.Controls.Add(this.lastEmptyHead);
             this.Controls.Add(this.firstEmptyHead);
             this.Controls.Add(this.TextLbl);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TurnLine";
             this.Size = new System.Drawing.Size(100, 180);

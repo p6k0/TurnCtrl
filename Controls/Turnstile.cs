@@ -20,7 +20,7 @@ namespace TurnCtrl
             }
         }
         private Model _model;
-        
+
         ToolTip ttip;
         public PassProperties Properties;
 
@@ -81,31 +81,10 @@ namespace TurnCtrl
 
         private void UpdateHead(bool In)
         {
+            ImageList lst = TurnstileSkin.get(model);
             PictureBox pb = In ? inHead : outHead;
-
-            switch (model)
-            {
-                case Model.ut2000:
-                case Model.ut2000_5:
-                    pb.Image =
-                        In ?
-                        (Properties.InEnable ? TurnCtrl.Properties.Resources.ut2000_head_in_normal : TurnCtrl.Properties.Resources.ut2000_head_in_empty) :
-                        (Properties.OutEnable ? TurnCtrl.Properties.Resources.ut2000_head_out_normal : TurnCtrl.Properties.Resources.ut2000_head_out_empty);
-                    break;
-                case Model.ut2012:
-                case Model.ut2012_14:
-                    pb.Image =
-                        In ?
-                        (Properties.InEnable ? TurnCtrl.Properties.Resources.ut2012_head_in_normal : TurnCtrl.Properties.Resources.ut2012_head_in_empty) :
-                        (Properties.OutEnable ? TurnCtrl.Properties.Resources.ut2012_head_out_normal : TurnCtrl.Properties.Resources.ut2012_head_out_empty);
-                    break;
-                case Model.ut2000_9:
-                    pb.Image =
-                        In ?
-                        (Properties.InEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_in_normal : TurnCtrl.Properties.Resources.ut2000_9_head_in_empty) :
-                        (Properties.OutEnable ? TurnCtrl.Properties.Resources.ut2000_9_head_out_normal : TurnCtrl.Properties.Resources.ut2000_9_head_out_empty);
-                    break;
-            }
+            bool enable = In ? Properties.InEnable : Properties.OutEnable;
+            pb.Image = lst.Images[(In ? "in" : "out") + "_" + (enable ? "normal" : "empty")];
         }
 
 

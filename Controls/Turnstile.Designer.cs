@@ -30,9 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.passNum = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.passOut = new System.Windows.Forms.PictureBox();
-            this.passNum = new System.Windows.Forms.Label();
             this.Laser_I_1 = new System.Windows.Forms.PictureBox();
             this.Laser_I_0 = new System.Windows.Forms.PictureBox();
             this.Laser_O_1 = new System.Windows.Forms.PictureBox();
@@ -67,6 +67,22 @@
             this.label2.Size = new System.Drawing.Size(19, 2);
             this.label2.TabIndex = 7;
             // 
+            // passNum
+            // 
+            this.passNum.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.passNum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.passNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.passNum.Location = new System.Drawing.Point(20, 130);
+            this.passNum.Margin = new System.Windows.Forms.Padding(0);
+            this.passNum.Name = "passNum";
+            this.passNum.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.passNum.Size = new System.Drawing.Size(40, 20);
+            this.passNum.TabIndex = 9;
+            this.passNum.Text = "#";
+            this.passNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.passNum.UseMnemonic = false;
+            this.passNum.MouseClick += new System.Windows.Forms.MouseEventHandler(this.passNum_MouseClick);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TurnCtrl.Properties.Resources.ARROW_IN;
@@ -86,22 +102,6 @@
             this.passOut.Size = new System.Drawing.Size(30, 9);
             this.passOut.TabIndex = 10;
             this.passOut.TabStop = false;
-            // 
-            // passNum
-            // 
-            this.passNum.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.passNum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.passNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
-            this.passNum.Location = new System.Drawing.Point(20, 130);
-            this.passNum.Margin = new System.Windows.Forms.Padding(0);
-            this.passNum.Name = "passNum";
-            this.passNum.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.passNum.Size = new System.Drawing.Size(40, 20);
-            this.passNum.TabIndex = 9;
-            this.passNum.Text = "#";
-            this.passNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.passNum.UseMnemonic = false;
-            this.passNum.MouseClick += new System.Windows.Forms.MouseEventHandler(this.passNum_MouseClick);
             // 
             // Laser_I_1
             // 
@@ -178,6 +178,7 @@
             this.Controls.Add(this.Laser_O_0);
             this.Controls.Add(this.inHead);
             this.Controls.Add(this.outHead);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Turnstile";
             this.Size = new System.Drawing.Size(80, 150);

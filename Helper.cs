@@ -4,6 +4,37 @@ using System.Windows.Forms;
 
 namespace TurnCtrl
 {
+    static class TurnstileSkin
+    {
+        private static System.Collections.Generic.Dictionary<Turnstile.Model, ImageList> Skins = new System.Collections.Generic.Dictionary<Turnstile.Model, ImageList>();
+        public static ImageList get(Turnstile.Model model)
+        {
+            //Исключения для визуально одинаковых моделей
+            if (model == Turnstile.Model.ut2000_5) model = Turnstile.Model.ut2000;
+            if (model == Turnstile.Model.ut2012_14) model = Turnstile.Model.ut2012;
+
+            if (!Skins.ContainsKey(model))
+                return CreateSkin(model);
+            return Skins[model];
+        }
+        private static ImageList CreateSkin(Turnstile.Model model)
+        {
+            ImageList lst = new ImageList();
+            lst.ImageSize = new Size(20, 65);
+            addSkinImageByKey(ref lst, model, "in_empty");
+            addSkinImageByKey(ref lst, model, "in_normal");
+            addSkinImageByKey(ref lst, model, "out_empty");
+            addSkinImageByKey(ref lst, model, "out_normal");
+            Skins.Add(model, lst);
+            return lst;
+        }
+
+        private static void addSkinImageByKey(ref ImageList lst, Turnstile.Model model, string name)
+        {
+            lst.Images.Add(name, (Image)(Properties.Resources.ResourceManager.GetObject(model.ToString() + "_" + name)));
+        }
+    }
+
     public static class Helper
     {
         /// <summary>

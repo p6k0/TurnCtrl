@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static System.Windows.Forms.ImageList;
 
 namespace TurnCtrl
 {
@@ -41,23 +42,9 @@ namespace TurnCtrl
 
         private void ChangeEmptyHeads()
         {
-            switch (Properties.TurnstileModel)
-            {
-                case Turnstile.Model.ut2000:
-                case Turnstile.Model.ut2000_5:
-                    firstEmptyHead.Image = TurnCtrl.Properties.Resources.ut2000_head_in_empty;
-                    lastEmptyHead.Image = TurnCtrl.Properties.Resources.ut2000_head_out_empty;
-                    break;
-                case Turnstile.Model.ut2012:
-                case Turnstile.Model.ut2012_14:
-                    firstEmptyHead.Image = TurnCtrl.Properties.Resources.ut2012_head_in_empty;
-                    lastEmptyHead.Image = TurnCtrl.Properties.Resources.ut2012_head_out_empty;
-                    break;
-                case Turnstile.Model.ut2000_9:
-                    firstEmptyHead.Image = TurnCtrl.Properties.Resources.ut2000_9_head_in_empty;
-                    lastEmptyHead.Image = TurnCtrl.Properties.Resources.ut2000_9_head_out_empty;
-                    break;
-            }
+            ImageList lst = TurnstileSkin.get(Properties.TurnstileModel);
+            firstEmptyHead.Image = lst.Images["in_empty"];
+            lastEmptyHead.Image = lst.Images["out_empty"];
         }
 
         public void MoveBottom()

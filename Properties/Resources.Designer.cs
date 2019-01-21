@@ -113,9 +113,9 @@ namespace TurnCtrl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ut2000_9_head_in_empty {
+        internal static System.Drawing.Bitmap ut2000_9_in_empty {
             get {
-                object obj = ResourceManager.GetObject("ut2000_9_head_in_empty", resourceCulture);
+                object obj = ResourceManager.GetObject("ut2000_9_in_empty", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace TurnCtrl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ut2000_9_head_in_normal {
+        internal static System.Drawing.Bitmap ut2000_9_in_normal {
             get {
-                object obj = ResourceManager.GetObject("ut2000_9_head_in_normal", resourceCulture);
+                object obj = ResourceManager.GetObject("ut2000_9_in_normal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace TurnCtrl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ut2000_9_head_out_empty {
+        internal static System.Drawing.Bitmap ut2000_9_out_empty {
             get {
-                object obj = ResourceManager.GetObject("ut2000_9_head_out_empty", resourceCulture);
+                object obj = ResourceManager.GetObject("ut2000_9_out_empty", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace TurnCtrl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ut2000_9_head_out_normal {
+        internal static System.Drawing.Bitmap ut2000_9_out_normal {
             get {
-                object obj = ResourceManager.GetObject("ut2000_9_head_out_normal", resourceCulture);
+                object obj = ResourceManager.GetObject("ut2000_9_out_normal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace TurnCtrl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ut2000_head_in_empty {
+        internal static System.Drawing.Bitmap ut2000_in_empty {
             get {
-                object obj = ResourceManager.GetObject("ut2000_head_in_empty", resourceCulture);
+                object obj = ResourceManager.GetObject("ut2000_in_empty", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace TurnCtrl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ut2000_head_in_normal {
+        internal static System.Drawing.Bitmap ut2000_in_normal {
             get {
-                object obj = ResourceManager.GetObject("ut2000_head_in_normal", resourceCulture);
+                object obj = ResourceManager.GetObject("ut2000_in_normal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace TurnCtrl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ut2000_head_out_empty {
+        internal static System.Drawing.Bitmap ut2000_out_empty {
             get {
-                object obj = ResourceManager.GetObject("ut2000_head_out_empty", resourceCulture);
+                object obj = ResourceManager.GetObject("ut2000_out_empty", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +183,9 @@ namespace TurnCtrl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ut2000_head_out_normal {
+        internal static System.Drawing.Bitmap ut2000_out_normal {
             get {
-                object obj = ResourceManager.GetObject("ut2000_head_out_normal", resourceCulture);
+                object obj = ResourceManager.GetObject("ut2000_out_normal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +193,9 @@ namespace TurnCtrl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ut2012_head_in_empty {
+        internal static System.Drawing.Bitmap ut2012_in_empty {
             get {
-                object obj = ResourceManager.GetObject("ut2012_head_in_empty", resourceCulture);
+                object obj = ResourceManager.GetObject("ut2012_in_empty", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +203,9 @@ namespace TurnCtrl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ut2012_head_in_normal {
+        internal static System.Drawing.Bitmap ut2012_in_normal {
             get {
-                object obj = ResourceManager.GetObject("ut2012_head_in_normal", resourceCulture);
+                object obj = ResourceManager.GetObject("ut2012_in_normal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +213,9 @@ namespace TurnCtrl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ut2012_head_out_empty {
+        internal static System.Drawing.Bitmap ut2012_out_empty {
             get {
-                object obj = ResourceManager.GetObject("ut2012_head_out_empty", resourceCulture);
+                object obj = ResourceManager.GetObject("ut2012_out_empty", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +223,9 @@ namespace TurnCtrl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ut2012_head_out_normal {
+        internal static System.Drawing.Bitmap ut2012_out_normal {
             get {
-                object obj = ResourceManager.GetObject("ut2012_head_out_normal", resourceCulture);
+                object obj = ResourceManager.GetObject("ut2012_out_normal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

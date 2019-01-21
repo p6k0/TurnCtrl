@@ -161,6 +161,7 @@ namespace TurnCtrl
                 {
                     TurnLine ln = lg.addLine(CreateTurnLineProperties(lnEl));
                     ln.HeaderClick += station.LineHeaderClick;
+                    //Информация о предыдущей стойке
                     RackProperties prevRack = CreateRackProperty((XmlElement)lnEl.SelectSingleNode("Turn[@Order=\"0\"]"));
                     for (int i = 1; i < lnEl.SelectNodes("Turn").Count; i++)
                     {
@@ -169,7 +170,6 @@ namespace TurnCtrl
                         Turnstile t = ln.addTurnstile(p);
                         t.PassNumClick += station.PassNumClick;
                         prevRack = p.InRack;
-                       // t.DrawIcons();
                     }
                     //ln.Compose();
                 }

@@ -20,7 +20,7 @@ namespace TurnCtrl
             }
         }
         private Model _model;
-        
+
         ToolTip ttip;
         public PassProperties Properties;
 
@@ -87,8 +87,7 @@ namespace TurnCtrl
             {
                 case Model.ut2000:
                 case Model.ut2000_5:
-                    pb.Image =
-                        In ?
+                    pb.Image = In ?
                         (Properties.InEnable ? TurnCtrl.Properties.Resources.ut2000_head_in_normal : TurnCtrl.Properties.Resources.ut2000_head_in_empty) :
                         (Properties.OutEnable ? TurnCtrl.Properties.Resources.ut2000_head_out_normal : TurnCtrl.Properties.Resources.ut2000_head_out_empty);
                     break;
